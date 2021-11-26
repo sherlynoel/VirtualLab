@@ -1,0 +1,143 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Prims Algorthim  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Prims Algorithm</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Find Minimum Cost Spanning Tree of a given undirected graph
+using Prim's algorithm. Implement the program
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			<div class="probState" style="background-color:white;border: none;">
+<pre style="color:black;font-size: 15px ;">
+
+    import.java.util.scanner;
+    public class Lab8B 
+    {
+        public static void main(String[] args) {
+        int cost[][]=new int[10][10];
+        int i, j, mincost = 0;
+        Scanner in = new Scanner(System.in);
+        System.out.println("********* PRIMS ALGORITHM *********");
+        System.out.println("Enter the number of nodes");
+        int n = in.nextInt();
+        System.out.println("Enter the cost matrix");
+        for(i=1; i<=n; i++){
+            for(j=1; j<=n; j++){
+                cost[i][j] = in.nextInt();
+            }
+          }
+        System.out.println("The entered cost matrix is"); 
+        for(i=1; i<=n; i++){
+            for(j=1; j<=n; j++){
+            System.out.print(cost[i][j]+"\t");
+            }
+        System.out.println();
+    }
+        System.out.println("Minimum Spanning Tree Edges and costs are");
+        mincost=prims(cost,n,mincost);
+        System.out.println("The minimum spanning tree cost is”);
+        System.out.println (+mincost);
+        System.out.println("******* ********************* *******");
+    }
+    
+    static int prims(int cost[][],int n,int mincost)
+    {
+        int nearV[]=new int[10],t[][]=new int[10][3],u =
+        0,i,j,k; for(i=2; i<=n; i++)
+        nearV[i]=1;
+        nearV[1]=0;
+        for(i=1; i<n; i++)
+        {
+            int min=999;
+            for(j=1;j<=n;j++)
+            {
+                if(nearV[j]!=0 && cost[j][nearV[j]]<min)
+            {
+            min=cost[j][nearV[j]];
+            u=j;
+            }
+    }
+    
+    t[i][1] = u;
+    t[i][2] = nearV[u];
+    mincost += min;
+    nearV[u] = 0;
+    
+    for(k=1; k<=n; k++){
+    
+    if(nearV[k] != 0 && cost[k][nearV[k]] > cost[k][u])
+        nearV[k] = u;
+    }
+        System.out.println(i+") Minimum edge is ("+t[i][1]);
+        System.out.println(","+t[i][2]+") and its cost is :"+min);
+        }
+    return mincost;
+    }
+    }
+</pre>
+			</div>
+			<br><br>
+			
+		</div>
+	
+	
+</body>
+
+</html>

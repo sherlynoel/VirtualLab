@@ -1,0 +1,132 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Krushkal's Algorithm </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Krushkal's Algorithm</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>Kruskal's algorithm to find the minimum cost spanning tree uses the greedy approach.
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                <p>
+                
+               <b> What is Minimum Spanning Tree?</b><br>
+Given a connected and undirected graph, a spanning tree of that graph is a subgraph that is a tree and connects all the vertices together. A single graph can have many different spanning trees. A minimum spanning tree (MST) or minimum weight spanning tree for a weighted, connected and undirected graph is a spanning tree with weight less than or equal to the weight of every other spanning tree. The weight of a spanning tree is the sum of weights given to each edge of the spanning tree.<br><br>
+
+<b>How many edges does a minimum spanning tree has?</b><br>
+A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
+
+<br><br>
+                </p> 
+<pre style="background-color: lightgray">
+Algorithm
+1. Sort all the edges in non-decreasing order of their weight.
+2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it.
+3. Repeat step#2 until there are (V-1) edges in the spanning tree.
+</pre><br>
+<p>The algorithm is a Greedy Algorithm. The Greedy Choice is to pick the smallest weight edge that does not cause a cycle in the MST constructed so far. Let us understand it with an example: Consider the below input graph.</p><br><br>
+<img src="../../image/krushkals1.jpg"><br><br>
+<p>The graph contains 9 vertices and 14 edges. So, the minimum spanning tree formed will be having (9 – 1) = 8 edges.</p><br>
+<pre style="background-color: lightgray">
+After sorting:
+Weight   Src    Dest
+1         7      6
+2         8      2
+2         6      5
+4         0      1
+4         2      5
+6         8      6
+7         2      3
+7         7      8
+8         0      7
+8         1      2
+9         3      4
+10        5      4
+11        1      7
+14        3      5
+
+</pre>
+<br><br>
+<center>
+<p>
+      <img src="../../image/k1.PNG">
+    <img src="../../image/k2.PNG">
+    <img src="../../image/k3.PNG">
+    <img src="../../image/k4.PNG">
+</p>
+</center>
+<br><br><br><br>
+            <div style="background-color: lightcyan;color:black ;padding: 15px ;border-radius: 15px ;border: 1px solid #acf7f7">
+            REFERENCE :<br>
+               <a href="https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/">https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/</a>
+                <br>
+              <a href="https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/">https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/</a><br>
+                <a href="https://www.tutorialspoint.com/data_structures_algorithms/kruskals_spanning_tree_algorithm.htm">https://www.tutorialspoint.com/data_structures_algorithms/kruskals_spanning_tree_algorithm.htm</a>
+                </div>
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

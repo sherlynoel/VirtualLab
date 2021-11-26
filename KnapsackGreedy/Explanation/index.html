@@ -1,0 +1,103 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Labs | KnapSack Greedy </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Knapsack | Greedy</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		A thief is robbing a store and can carry a maximal weight of W into his knapsack. There are n items available in the store and weight of ith item is wi and its profit is pi. What items should the thief take?
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+              <h4><b>Knapsack | Greedy</b></h4>
+              <p style="color: crimson">
+              	<b>What does it mean?</b>
+              </p>
+              <p>
+              	In knapsack problem, we have a knapsack i.e. a bag and few objects having some weight with a particular value/profit. The capacity of the bag is given and the objects are to be placed in the bag such that maximum profit can be made. The word 'fractional' is used since we can break or use a fraction of a particular item to maximize the total profit or value of knapsack and hence is different from 0/1 Knapsack problem. Fractional Knapsack problem is one of the problems where Greedy algorithm is best suited.
+              </p>
+              <p>
+              	<b>Concept</b>
+              </p>
+              <p>
+              	In fractional knapsack problem, we have a bag with a certain capacity and have n items from i1 to in having weight as w1 to wn with particular value/profit as p1 to pn. We have to put items into the knapsack such that the capacity is not exceeded and profit made is maximum. Thus fractional knapsack problem is an optimization problem. Optimization problem are such problems where we need to get a desired result on optimizing certain factors wiz. decreasing the weight and increasing the profit, etc. This is where Greedy algorithm comes into play. Fractional knapsack can even be solved by traditional way of considering all possible combinations but greedy algorithm is most efficient.</p>
+              	<p> Greedy algorithm is way where we make a choice which seems the best at that step. In other words, it is an algorithmic paradigm where we make locally optimized decision with the hope of getting a globally optimized solution. For more details, read the article on Greedy algorithm.
+              </p>
+              <br><br>
+              <h4><b>Example</b></h4>
+              <p>
+              	Suppose we have a knapsack of capacity 15 and have 8 objects with their weight and profit given as follows:
+              </p>
+              <br>
+              <center>
+              	<img src="f_knapsack.png" alt="">
+              </center>
+              <br><br>
+              <p>
+              	In the knapsack strategy, we first find the profit/weight ratio and then sort it in decreasing order. Now the item with the highest ratio will be placed first into the bag. (extras: If you had just prioritized the profit and have placed the item with highest profit first, then the total profit would be equal or less compared to above result. Even on placing according to lowest weight, the total profit would be less.)
+              </p>     
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

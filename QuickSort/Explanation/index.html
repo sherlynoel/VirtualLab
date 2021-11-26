@@ -1,0 +1,157 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Quick Sort  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<style type="text/css">
+		.number{
+			color: #C00000;
+		}
+		.keywords{
+			color: #069;
+		}
+	</style>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	    <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Quick Sort |  Sorting </strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways 
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+			<div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+			  <h4><b>Quick Sort |  Sorting</b></h4>
+			  <p>
+			  	Quick Sort is an algorithm of Divide & Conquer type
+			  </p><br>
+			  <p>
+			  	<b>Divide:</b> Rearrange the elements and split arrays into two sub-arrays and an element in between search that each element in left sub array is less than or equal to the average element and each element in the right sub- array is larger than the middle element.
+			  </p>
+			  <p>
+			  	<b>Conquer:</b>  Recursively, sort two sub arrays.
+			  </p>
+			  <p>
+			  	<b>Combine: </b>Combine the already sorted array.
+			  </p>
+			  <br><br><br>
+			  <p>
+			  	<b>Algorithm</b>
+			  </p>
+			  <pre>
+QUICKSORT (array A, <span class="keywords">int</span> m, <span class="keywords">int</span> n)   
+ <span class="number">1</span> <span class="keywords">if</span> (n > m)   
+ <span class="number">2</span> then   
+ <span class="number">3</span> i ← a random index from [m,n]   
+ <span class="number">4</span> swap A [i] with A[m]   
+ <span class="number">5</span> o ← PARTITION (A, m, n)   
+ <span class="number">6</span> QUICKSORT (A, m, o - 1)  
+ <span class="number">7</span> QUICKSORT (A, o + 1, n) 
+			  </pre>
+			  <p><b>Partition Algorithm</b></p>
+			  <pre>
+PARTITION (array A, <span class="keywords">int</span> m, <span class="keywords">int</span> n)   
+ <span class="number">1</span> x ← A[m]   
+ <span class="number">2</span> o ← m   
+ <span class="number">3</span> <span class="keywords">for</span> p ← m + 1 to n   
+ <span class="number">4</span> <span class="keywords">do if</span> (A[p] < x)   
+ <span class="number">5</span> then o ← o + 1    
+ <span class="number">6</span> swap A[o] with A[p]  
+ <span class="number">7</span> swap A[m] with A[o] 
+ <span class="number">8</span> <span class="keywords">return</span> o 
+			  </pre><br><br>
+			  <h4><b>Example</b></h4>
+			  <p>Consider the following array <span class="number"> a = [11, 75, 3, 1, 5, 10]</span> and assume we have to arrange in ascending order using quick sort.</p>
+			  <p>
+			  	<center>
+			  		<img src="./quick.png" alt="">
+			  	</center>
+			  </p>
+			  <br>
+			  <p>
+			  	<b>Parition Function</b>
+			  </p>
+			  <p>
+			  	We start with two variables <b>i</b> and <b>j</b>. Out of which, j initially points to first element and i points to the previous index of the first element. We start comparing a[ j ] with pivot/last element and if a[ j ] <= pivot then increment i and swap a[ i ] with a[ j ]. It should be noted that j is from p t0 r-1, incrementing by 1 each time; where array is a[p, p+1 ... r].
+			  </p><br>
+			  <p>
+			  	<center>
+			  		<img src="./quick2.png" alt="">
+			  	</center>
+			  </p>
+			  <br>
+			  <p>
+			  	In the above illustration, we can observe that elements before i is always smaller than pivot at any given time and elements between i and j is greater or equal to pivot at any given time. Moreover, i is first incremented by 1 and then swapped with a[ j ] every time. We should not simply swap a[ i ] with a[ j ] without incrementing. Consider the following:
+			  </p>
+			  <br>
+			  <p>
+			  	<center>
+			  		<img src="./quick4.png" alt="">
+			  	</center>
+			  </p>
+			  <p>
+			  	The recursion used in the quicksort function is important. Each quicksort itself invokes two other quicksort and one partition function . It continues till only one or none element remains. The following diagram systematically shows how it works!
+			  </p>
+			  <center>
+			  	<img src="./quick3.png" alt="">
+			  </center>
+			</div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

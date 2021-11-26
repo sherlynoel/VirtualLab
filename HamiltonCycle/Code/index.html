@@ -1,0 +1,181 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Hamilton Cycle  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js">
+    </script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+          	<strong class="ribbon-content">Hamilton Cycle </strong>
+    	    </h1>
+    	    <br>
+    	    <br>
+    	    <div class="probState">
+    	    	<p>
+    	    		<strong>Problem Statement :
+    	    		</strong>
+    	     		A Hamiltonian cycle, also called a Hamiltonian circuit, Hamilton cycle, or Hamilton circuit, is a graph cycle (i.e., closed loop) through a graph that visits each node exactly once
+    	    </div>
+    	    <br>
+    	    <br>
+    		<div class="probState" style="background-color:white;border: none;">
+                <pre style="color:black;font-size: 15px ;">
+        import java.util.*;
+
+        public class HamilCycle {
+
+            static int n;
+
+            static int adj[][];
+
+            static int path[];
+
+
+            public static boolean contains(int[] arr, int item) { 
+                for (int n : arr) {
+
+                    if (item == n) {
+
+                    return true;
+
+                    }
+
+                }
+
+            return false;
+
+            }
+
+            public static void findCycle(int startvertex, int pos) {
+
+                for(int i=0;i< n;i++) {
+
+                    if(adj[startvertex][i]!=0) {
+
+                        generatepath(startvertex,i,pos);
+
+                        for(int j=pos+1;j< n;j++)
+
+                        path[j]=999;
+
+                    }
+
+                }
+
+            }
+
+            public static void generatepath(int startvertex, int nextvertex,int pos) {
+
+                path[pos]=startvertex;
+
+                pos=pos+1;
+
+                if(!contains(path,nextvertex) && pos< n) {
+                    path[pos]=nextvertex;
+
+                    startvertex=nextvertex;
+
+                    findCycle(startvertex,pos);
+
+                    if(pos==n-1 && adj[nextvertex][path[0]]==1) {
+
+                        for(int i=0;i< n;i++) {
+
+                            System.out.print(path[i]+"-->");
+
+                        }
+
+                        System.out.println(path[0]);
+
+                    }
+
+                }
+
+            }
+
+            public static void main(String[] args) {
+
+
+                Scanner s = new Scanner(System.in); System.out.println("Enter the number of vertices"); n=s.nextInt();
+
+                adj= new int[n][n]; path = new int[n];
+
+                System.out.println("Enter the adjacaency matrix");
+
+                for(int i=0;i< n;i++)
+
+                    for(int j=0;j< n;j++)
+
+                        adj[i][j]=s.nextInt();
+
+                    for(int i=0;i< n;i++) {
+
+                        for(int j=0;j< n;j++) {
+
+                            path[j]=999;
+                        }
+
+                    System.out.println("Cycle starting from vertex " + i);
+
+                    findCycle(i,0);
+
+                    }
+
+            }
+
+        }
+    
+
+                </pre>
+			</div>
+			<br>
+            <br>
+		</div>
+</body>
+
+</html>

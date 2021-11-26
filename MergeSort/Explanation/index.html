@@ -1,0 +1,171 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Labs  | Merge Sort  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+	  <a id="sideNav" href="../Code/">Code</a>
+	  <a id="sideNav" href="../Explanation/">Program Description</a>
+	  <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Merge Sort | Sorting</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Implement Merge sort algorithm and calculate time required for various input numbers
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+      <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+    		<h4><b>Merge Sort | Sorting</b></h4>
+    		<p>
+    			<p><b>Concept</b></p>
+    			Merge sort is an efficient and very popular sorting algorithm. It is basically a divide and conquer algorithm just like the quick sort. So the strategy includes divide, conquer and combine
+    		</p>
+    		<p>
+					<p>First of all, divide and conquer algorithms follow the following strategy:</p>
+					<p><b>Divide:</b> breaking down a problem into two or more sub-problems of the same or related type.</p>
+					<p><b>Conquer:</b>  using recursion(whenever a function calls itself) to solve these problems.
+					Combine: merging or combining the results as required.</p>
+
+
+					<p>Following the same strategy here, a merge sort divides the array in two equal parts. 
+					Each set is individually sorted and the resulting sorted sequence are merged to produce a single sorted sequence. This process is recursively done.</p>
+				</p>
+				<br><br>
+				<p><b>Algorithm</b></p>
+				<pre>
+MERGE (ARR, BEG, MID, END)			
+<b>Step 1:</b> [INITIALIZE] SET I = BEG, J = MID + 1, INDEX = 0
+<b>Step 2:</b> Repeat while (I <= MID) AND (J<=END)
+	IF ARR[I] < ARR[J]
+		SET TEMP[INDEX] = ARR[I]
+		SET I = I + 1
+	ELSE
+		SET TEMP[INDEX] = ARR[J]
+		SET J = J + 1
+	[END OF IF]
+	SET INDEX = INDEX + 1
+	[END OF LOOP]
+<b>Step 3:</b> [Copy the remaining elements of right sub-array, if any]
+	IF I > MID
+		Repeat while J <= END
+			SET TEMP[INDEX] = ARR[J]
+			SET INDEX = INDEX + 1, SET J = J + 1
+		[END OF LOOP]
+	[Copy the remaining elements of left sub-array, if any]
+	ELSE
+		Repeat while I <= MID
+			SET TEMP[INDEX] = ARR[I]
+			SET INDEX = INDEX + 1, SET I = I + 1
+		[END OF LOOP]
+	[END OF IF]
+<b>Step 4:</b> [Copy the contents of TEMP back to ARR] 
+	SET K = 0
+<b>Step 5:</b> Repeat while K < INDEX
+		SET ARR[K] = TEMP[K]
+		SET K = K + 1
+	[END OF LOOP]
+<b>Step 6:</b> Exit
+
+</pre>
+<pre>
+MERGE_SORT(ARR, BEG, END)
+
+<b>Step 1:</b> IF BEG < END
+		SET MID = (BEG + END)/2
+		CALL MERGE_SORT (ARR, BEG, MID)
+		CALL MERGE_SORT (ARR, MID + 1, END)
+		MERGE (ARR, BEG, MID, END)
+	[END OF IF]
+<b>Step 2:</b> END
+				</pre>
+				<p><b>Example</b></p>
+				<p>
+					Consider the following array <span style="color: crimson">a = [5, 7, 3, 10, 6, 2]</span> and assume we have to arrange in ascending order using merge sort.
+				</p>
+				<br>
+				<center>
+					<img src="./merge1.png" alt="">
+				</center>
+				<br><br>
+				<p>
+					In the above illustration, we can observe that the array is divided into two parts till we get individual elements. After which, the combination takes place. In the coding part, merge sort is carried out using two important functions i.e. merge and mergesort. The function merge is used to combine the two subarrays in correct order. This function can also be considered as the heart of the algorithm. Another function mergesort is used to divide the array into two parts and calls the function merge within itself.</p>
+
+<p>Before jumping to code, let's first understand the working of functions merge and mergesort. In the last step of above picture,
+merging {3,5,7} and {2,6,10} ---> as {2,3,5,6,7,10}
+or even just merging {10} and {6} ----> as {6,10} ....is the sole responsibility of merge function. So it gets input as 3 indices namely p,q and r which are indices of subarrays such that 1st subarray is a[ p ... q ] and second is a[ q+1, ... r ]. For simplicity, a[p...q] is copied in L[0,1..n1-1] and a[q+1....r] is copied in R[0,1...n2-1], where n1 and n2 are size of respective subarrays. The following is the illustration of merge function, which compares the two subarrays from left most side and consequently places the smaller one in the merged array( for ascending order).
+				</p><br><br>
+				<center>
+					<img src="./merge2.png" alt="">
+				</center><br><br>
+				<p>
+					The recursion used in the mergesort function is important. Each mergesort itself invokes two other mergesort and one merge function . It continues till only one element remains or in other words p < q. The following diagram systematically shows how it works!
+				</p><br><br>
+				<center>
+					<img src="./merge4.png" alt="">
+				</center>
+
+
+
+
+
+
+          
+        
+      </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

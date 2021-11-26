@@ -1,0 +1,109 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Stack </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Stack</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Write a Java program to implement the Stack using arrays. Write Push(), Pop() and Display() methods to demonstrate its working.
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                    <h4><b>Stack | Using Arrays </b></h4>
+<p>Stacks are linear data structures that follow the <b>Last In First Out (LIFO) </b> principle. The last item to be inserted into a stack is the first one to be deleted from it.</p><p>
+	For example, you have a stack of trays on a table. The tray at the top of the stack is the first item to be moved if you require a tray from that stack.
+</p>
+                <br>
+               
+<h5>
+	<b>Inserting and deleting elements</b>
+</h5>
+<p>
+	<p>
+		Stacks have restrictions on the insertion and deletion of elements. Elements can be inserted or deleted only from one end of the stack i.e. from the <i><b>top</b></i> . The element at the top is called the <i><b>top</b></i>  element. The operations of inserting and deleting elements are called <i><b>push</b></i> and <i><b> pop </b></i>  respectively.
+	</p>
+	<p>
+		When the top element of a stack is deleted, if the stack remains non-empty, then the element just below the previous top element becomes the new top element of the stack.
+	</p>
+	<p>
+		For example, in the stack of trays, if you take the tray on the top and do not replace it, then the second tray automatically becomes the top element (tray) of that stack.
+	</p>
+</p>
+<h5><b>Features of Stack</b></h5>
+<ul>
+	<li>
+		Do not consume a fixed amount of memory
+	</li>
+	<li>
+		Size of stack changes with each <i><b>push</b></i>  and <i><b> pop </b></i> operation. Each <i><b>push</b></i> and <i><b> pop </b></i> operation increases and decreases the size of the stack by <i><b> 1 </b></i> , respectively.
+	</li>
+</ul>
+<p>
+	A stack can be isualized as follows
+</p>
+<img src="./stack.png" alt="stack"><br>              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

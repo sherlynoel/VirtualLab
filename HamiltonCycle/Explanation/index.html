@@ -1,0 +1,128 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Hamilton Cycle</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+	  <a id="sideNav" href="../Code/">Code</a>
+	  <a id="sideNav" href="../Explanation/">Program Description</a>
+	  <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Hamilton Cycle</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		 Design and implement in Java to find all Hamiltonian
+Cycles in a connected undirected Graph G of n vertices using
+backtracking principle.
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                    <h4><b>Hamiltonian Cycle | Backtracking</b></h4>
+                 <p>Hamiltonian Path in an undirected graph is a path that visits each vertex exactly once. A Hamiltonian cycle (or Hamiltonian circuit) is a Hamiltonian Path such that there is an edge (in the graph) from the last vertex to the first vertex of the Hamiltonian Path. Determine whether a given graph contains Hamiltonian Cycle or not. If it contains, then prints the path. Following are the input and output of the required function</p>
+                <br>
+               
+<h5><b>Input:</b></h5>
+A 2D array graph[V][V] where V is the number of vertices in graph and graph[V][V] is adjacency matrix representation of the graph. A value graph[i][j] is 1 if there is a direct edge from i to j, otherwise graph[i][j] is 0.
+
+ <h5><b>Output:</b></h5>
+An array path[V] that should contain the Hamiltonian Path. path[i] should represent the ith vertex in the Hamiltonian Path. The code should also return false if there is no Hamiltonian Cycle in the graph.
+            <br>    <br>Following images explains the idea behind Hamiltonian Path more clearly.<br>
+                <img src="../../image/hami0.png"><br>
+                <img src="../../image/hami2.png">
+                <img src="../../image/hami3.png">
+                <img src="../../image/hami4.png">
+ <br>   Graph shown in Fig.1 does not contain any Hamiltonian Path. Graph shown in Fig. 2 contains two Hamiltonian Paths which are highlighted in Fig. 3 and Fig. 4
+<br><br>
+Following are some ways of checking whether a graph contains a Hamiltonian Path or not.
+
+A Hamiltonian Path in a graph having N vertices is nothing but a permutation of the vertices of the graph [v1, v2, v3, ......vN-1, vN] , such that there is an edge between vi and vi+1 where 1 ≤ i ≤ N-1. So it can be checked for all permutations of the vertices whether any of them represents a Hamiltonian Path or not. For example, for the graph given in Fig. 2 there are 4 vertices, which means total 24 possible permutations, out of which only following represents a Hamiltonian Path.
+<br><br>
+0-1-2-3<br>
+3-2-1-0<br>
+0-1-3-2<br>
+2-3-1-0<br>
+<br>
+Following is the pseudo code of the above algorithm:<br>
+                <br>
+<pre style="border: 1px soild gray; background-color: lightgray;width: 70%; font-size: 15px ;">
+function check_all_permutations(adj[][], n)
+    for i = 0 to n
+        p[i]=i
+    while next permutation is possible
+        valid = true
+        for i = 0 to n-1
+            if adj[p[i]][p[i+1]] == false
+                valid = false
+                break
+        if valid == true
+            return true
+        p = get_next_permutation(p)
+    return false
+
+</pre><br>
+
+<center><img src="../../image/hamiGIF.gif"><p>Figure 5.</p><br>
+<p>Another Example of Hamiltonian Cycle that visit every vertex exactly once shown  in Figure 5 
+ </p></center>
+
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

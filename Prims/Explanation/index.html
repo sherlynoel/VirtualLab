@@ -1,0 +1,123 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Prims Algorithm </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Prims Algorithm</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+                Prim’s algorithm is a greedy algorithm for finding a minimal spanning tree on a weighted undirected graph using a greedy approach. 
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                   <p>
+                Greedy algorithms build solutions incrementally by continually making locally optimal choices as they attempt to find a globally optimal solution to a problem. In the case of Prim’s algorithm, we repeatedly select the vertex whose distance from the source vertex is minimized, i.e., the current locally optimal choice.
+
+                </p><br><br>
+<pre style="border: 1px soild gray; background-color: lightgray; font-size: 15px ;">
+Algorithm
+
+1) Create a set mstSet that keeps track of vertices already included in MST.
+2) Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. Assign key value as 0    for the first vertex so that it is picked first.
+3) While mstSet doesn’t include all vertices
+….a) Pick a vertex u which is not there in mstSet and has minimum key value.
+….b) Include u to mstSet.
+….c) Update key value of all adjacent vertices of u. To update the key values, iterate through all adjacent vertices.
+
+For every adjacent vertex v, if weight of edge u-v is less than the previous key value of v, update the key value as weight of u-v
+
+</pre><br>
+
+
+<p>
+    Let us understand with the following example:<br><br>
+    <img src="../../image/p1.jpg" width="50%" ;height="40%">
+   <br><br><br>
+    The set mstSet is initially empty and keys assigned to vertices are {0, INF, INF, INF, INF, INF, INF, INF} where INF indicates infinite. Now pick the vertex with minimum key value. The vertex 0 is picked, include it in mstSet. <br><br>
+    So mstSet becomes {0}. After including to mstSet, update key values of adjacent vertices. Adjacent vertices of 0 are 1 and 7. The key values of 1 and 7 are updated as 4 and 8. Following subgraph shows vertices and their key values, only the vertices with finite key values are shown.<br> The vertices included in MST are shown in green color.<br><br>
+    <img src="../../image/p2.jpg">
+    <br><br>
+    Pick the vertex with minimum key value and not already included in MST (not in mstSET). The vertex 1 is picked and added to mstSet. So mstSet now becomes {0, 1}. Update the key values of adjacent vertices of 1. The key value of vertex 2 becomes 8
+    <br><br>
+ <img src="../../image/p3.jpg">
+    <br><br>
+    Pick the vertex with minimum key value and not already included in MST (not in mstSET). We can either pick vertex 7 or vertex 2, let vertex 7 is picked. So mstSet now becomes {0, 1, 7}. Update the key values of adjacent vertices of 7. The key value of vertex 6 and 8 becomes finite (1 and 7 respectively).
+    <br><br>
+  <img src="../../image/p4.jpg">
+    <br><br>
+    Pick the vertex with minimum key value and not already included in MST (not in mstSET). Vertex 6 is picked. So mstSet now becomes {0, 1, 7, 6}. Update the key values of adjacent vertices of 6. The key value of vertex 5 and 8 are updated.<br><br>
+  <img src="../../image/p5.jpg">
+    <br><br>
+    We repeat the above steps until mstSet includes all vertices of given graph. Finally, we get the following graph.
+    <br><br>
+   <img src="../../image/p6.jpg">
+    
+</p>                
+
+
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

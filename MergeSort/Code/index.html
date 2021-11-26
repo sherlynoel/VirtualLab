@@ -1,0 +1,158 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Merge sort  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js">
+    </script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+      <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Merge Sort</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+Sort a given set of n integer elements using Merge Sort
+method and compute its time complexity. Run the program for
+varied values of n > 5000, and record the time taken to sort.
+Plot a graph of the time taken versus n on graph sheet. The
+elements can be read from a file or can be generated using the
+random number generator. Demonstrate using Java how the divide
+and conquer method works along with its time complexity analysis:
+worst case, average case and best case
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			<div class="probState" style="background-color:white;border: none;">
+<pre style="color:black;font-size: 15px ;">
+
+    import java.util.Random;
+    import java.util.Scanner;
+    public class Lab5 
+    {
+        public static void main(String[] args)
+        { 
+            int a[]= new int[100000];
+            Scanner in = new Scanner(System.in);
+            long start, end;
+            System.out.println("********** MERGE SORT PROGRAM *********");
+            System.out.println("Enter the number of elements to be sorted");
+            int n = in.nextInt();
+            Random rand= new Random();
+            for(int i=0;i< n;i++)
+                a[i]=rand.nextInt(100);
+            System.out.println("Array elements to be sorted are");
+            for(int i=0; i< n; i++)
+                System.out.print(a[i]+" ");
+            start=System.nanoTime();
+            mergesort(a,0,n-1);
+            end=System.nanoTime();
+             System.out.println("\nThe sorted elements are");
+            for(int i=0; i< n; i++)
+                System.out.print(a[i]+" ");
+            System.out.println("The time taken to sort is "+(end-start)+"ns");
+            System.out.println("******** ********************** *******");
+       }
+        static void mergesort(int a[], int low, int high)
+        {
+            int mid;
+            if(low < high)
+            {
+                mid = (low+high)/2;
+                mergesort(a, low, mid);
+                mergesort(a, mid+1, high);
+                merge(a, low, mid, high);
+            }
+        }
+        static void merge(int a[], int low, int mid, int high)
+        {
+            int i, j, h, k, b[]= new int[100000];
+            h=low; i=low; j=mid+1;
+            while((h<=mid) && (j<=high)){
+            if(a[h] < a[j]){
+                b[i] = a[h]; h=h+1;
+                }
+
+            else
+            {
+                b[i] = a[j]; j=j+1;
+            }
+            i = i+1;
+            }
+            if(h > mid)
+            {
+                for(k=j; k<=high; k++)
+                {
+                    b[i] = a[k]; i = i+1;
+                }
+            }
+            else
+            {
+                for(k=h; k<=mid; k++){
+                b[i] = a[k]; 
+                i = i+1;
+            }
+           }
+            for(k=low; k<= high; k++)
+                a[k] = b[k];
+            }
+    }
+    
+</pre>
+			</div>
+			<br><br>
+			
+		</div>
+	
+	
+</body>
+
+</html>

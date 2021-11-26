@@ -1,0 +1,164 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Quick Sort  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js">
+    </script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+          	<strong class="ribbon-content">Quick Sort </strong>
+    	    </h1>
+    	    <br>
+    	    <br>
+    	    <div class="probState">
+    	    	<p>
+    	    		<strong>Problem Statement :
+    	    		</strong>
+    	     		QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways 
+    	     	</p>
+    	    </div>
+    	    <br>
+    	    <br>
+    		<div class="probState" style="background-color:white;border: none;">
+                <pre style="color:black;font-size: 15px ;">
+import java.util.Random;
+import java.util.Scanner;
+
+public class Lab4 {
+
+    public static void main(String[] args) { 
+        int a[]= new int[100000];
+        Scanner in = new Scanner(System.in);
+
+        long start, end;
+        System.out.println("*********QUICK SORT PROGRAM *********");
+
+        System.out.println("Enter the number of elements to be sorted");
+        int n = in.nextInt();
+
+        Random rand= new Random();
+
+        for(int i=0;i< n;i++)
+            a[i]=rand.nextInt(100);
+
+        System.out.println("Array elements to be sorted are");
+        for(int i=0; i< n; i++)
+            System.out.print(a[i]+" ");
+        a[n]=999;
+
+        start=System.nanoTime();
+        quicksort(a,0,n-1);
+
+        end=System.nanoTime();
+
+        System.out.println("\nThe sorted elements are"); 
+        for(int i=0; i< n; i++)
+            System.out.print(a[i]+" ");
+        System.out.println("The time taken to sort is "+(end-start)+"ns");
+        System.out.println("**********************************");
+
+     
+    }
+
+    static void quicksort(int a[],int p, int q){
+
+        int j;
+        if(p < q){
+
+            j=partition(a,p,q); // partition array into parts
+
+            quicksort(a,p,j-1); // sort left part of array
+            quicksort(a,j+1,q); // sort right part of array
+
+        }
+    }
+
+    static int partition(int a[],int m, int p){
+
+        int v, i, j;
+        v=a[m]; // first element is pivot element
+
+        i=m;
+        j=p;
+
+        while(i <= j){
+            while(a[i] <= v)
+                i++;
+    
+            while(a[j] > v)
+                j--;
+
+            if(i < j)
+                interchange(a,i,j); //swap the contents
+
+        }
+        a[m] = a[j];
+        a[j] = v;
+        return  j;
+    }
+
+    static void interchange(int a[], int i, int j){ int p;
+
+        p = a[i];
+
+        a[i] = a[j];
+        a[j] = p;
+
+    }
+}
+
+    
+
+                </pre>
+			</div>
+			<br>
+            <br>
+		</div>
+</body>
+
+</html>

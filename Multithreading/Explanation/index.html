@@ -1,0 +1,339 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MultiThreadig </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+        <a id="sideNav" href="../../Home/">Home</a>
+        <a id="sideNav" href="../Code/">Code</a>
+        <a id="sideNav" href="../Explanation/">Program Description</a>
+        <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Hamilton Cycle</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Given a set of positive integers, and a value sum S, find out if there exist a subset in array whose sum is equal to given sum S.
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                    <h4><b> MultiThreadig | Thread</b></h4>
+							<p>
+								<p>
+									<b>Multithreading </b> in java is a process of executing multiple threads simultaneously.
+								</p>
+								<p>
+									A thread is a lightweight sub-process, the smallest unit of processing. Multiprocessing and multithreading, both are used to achieve multitasking.
+								</p>
+								<p>
+									However, we use multithreading than multiprocessing because threads use a shared memory area. They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.
+								</p>
+								<p>
+									Java Multithreading is mostly used in games, animation, etc.
+								</p>
+							</p> 
+							<br><br>
+							<h4><b>Thread</b></h4>
+							<p>
+								A thread is a lightweight subprocess, the smallest unit of processing. It is a separate path of execution.
+								Threads are independent. If there occurs exception in one thread, it doesn't affect other threads. It uses a shared memory area.
+							</p> 
+							<br>  
+							<center>
+								<img src="./java-multithreading.png" alt="thread">
+							</center>
+							<br><br>
+							<p>
+								As shown in the above figure, a thread is executed inside the process. There is context-switching between the threads. There can be multiple processes inside the OS, and one process can have multiple threads.
+							</p> <br><br>
+							<h4><b>Thraed Class</b></h4>
+							<p>
+								Java provides <b>Thread</b> class to achieve thread programming. Thread class provides constructors and methods to create and perform operations on a thread. Thread class extends Object class and implements Runnable interface.
+							</p> 
+							<br><br>
+							<h4><b>Thread Methods</b></h4>
+<table class="table table-striped">
+<tr>
+	<th>S.N.</th>
+	<th>Modifier and Type</th>
+	<th>Method</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td>1)</td>
+	<td>void</td>
+	<td><a href="java-thread-start-method">start()</a></td>
+	<td>It is used to start the execution of the thread.</td>
+</tr>
+<tr>
+	<td>2)</td>
+	<td>void</td>
+	<td><a href="java-thread-run-method">run()</a></td>
+	<td>It is used to do an action for a thread.</td>
+</tr>
+<tr>
+	<td>3)</td>
+	<td>static void</td>
+	<td><a href="java-thread-sleep-method">sleep()</a></td>
+	<td>It sleeps a thread for the specified amount of time.</td>
+</tr>
+<tr>
+	<td>4)</td>
+	<td>static Thread</td>
+	<td><a href="java-thread-currentthread-method">currentThread()</a></td>
+	<td>It returns a reference to the currently executing thread object.</td>
+</tr>
+<tr>
+	<td>5)</td>
+	<td>void</td>
+	<td><a href="java-thread-join-method">join()</a></td>
+	<td>It waits for a thread to die.</td>
+</tr>
+<tr>
+	<td>6)</td>
+	<td>int</td>
+	<td><a href="java-thread-getpriority-method">getPriority()</a></td>
+	<td>It returns the priority of the thread.</td>
+</tr>
+<tr>
+	<td>7)</td>
+	<td>void</td>
+	<td><a href="java-thread-setpriority-method">setPriority()</a></td>
+	<td>It changes the priority of the thread.</td>
+</tr>
+<tr>
+	<td>8)</td>
+	<td>String</td>
+	<td><a href="java-thread-getname-method">getName()</a></td>
+	<td>It returns the name of the thread.</td>
+</tr>
+<tr>
+	<td>9)</td>
+	<td>void</td>
+	<td><a href="java-thread-setname-method">setName()</a></td>
+	<td>It changes the name of the thread.</td>
+</tr>
+<tr>
+	<td>10)</td>
+	<td>long</td>
+	<td><a href="java-thread-getid-method">getId()</a></td>
+	<td>It returns the id of the thread.</td>
+</tr>
+<tr>
+	<td>11)</td>
+	<td>boolean</td>
+	<td><a href="java-thread-isalive-method">isAlive()</a></td>
+	<td>It tests if the thread is alive.</td>
+</tr>
+<tr>
+	<td>12)</td>
+	<td>static void</td>
+	<td><a href="java-thread-yield-method">yield()</a></td>
+	<td>It causes the currently executing thread object to pause and allow other threads to execute temporarily.</td>
+</tr>
+<tr>
+	<td>13)</td>
+	<td>void</td>
+	<td><a href="java-thread-suspend-method">suspend()</a></td>
+	<td>It is used to suspend the thread.</td>
+</tr>
+<tr>
+	<td>14)</td>
+	<td>void</td>
+	<td><a href="java-thread-resume-method">resume()</a></td>
+	<td>It is used to resume the suspended thread.</td>
+</tr>
+<tr>
+	<td>15)</td>
+	<td>void</td>
+	<td><a href="java-thread-stop-method">stop()</a></td>
+	<td>It is used to stop the thread.</td>
+</tr>
+<tr>
+	<td>16)</td>
+	<td>void</td>
+	<td><a href="java-thread-destroy-method">destroy()</a></td>
+	<td>It is used to destroy the thread group and all of its subgroups.</td>
+</tr>
+<tr>
+	<td>17)</td>
+	<td>boolean</td>
+	<td><a href="java-thread-isdaemon-method">isDaemon()</a></td>
+	<td>It tests if the thread is a daemon thread.</td>
+</tr>
+<tr>
+	<td>18)</td>
+	<td>void</td>
+	<td><a href="java-thread-setdaemon-method">setDaemon()</a></td>
+	<td>It marks the thread as daemon or user thread.</td>
+</tr>
+<tr>
+	<td>19)</td>
+	<td>void</td>
+	<td><a href="java-thread-interrupt-method">interrupt()</a></td>
+	<td>It interrupts the thread.</td>
+</tr>
+<tr>
+	<td>20)</td>
+	<td>boolean</td>
+	<td><a href="java-thread-isinterrupted-method">isinterrupted()</a></td>
+	<td>It tests whether the thread has been interrupted.</td>
+</tr><tr>
+	<td>21)</td>
+	<td>static boolean</td>
+	<td><a href="java-thread-interrupted-method">interrupted()</a></td>
+	<td>It tests whether the current thread has been interrupted.</td>
+</tr>
+<tr>
+	<td>22)</td>
+	<td>static int</td>
+	<td><a href="java-thread-activecount-method">activeCount()</a></td>
+	<td>It returns the number of active threads in the current thread's thread group.</td>
+</tr>
+<tr>
+	<td>23)</td>
+	<td>void</td>
+	<td><a href="java-thread-checkaccess-method">checkAccess()</a></td>
+	<td>It determines if the currently running thread has permission to modify the thread.</td>
+</tr>
+<tr>
+	<td>24)</td>
+	<td>static boolean</td>
+	<td><a href="java-thread-holdlock-method">holdLock()</a></td>
+	<td>It returns true if and only if the current thread holds the monitor lock on the specified object.</td>
+</tr>
+<tr>
+	<td>25)</td>
+	<td>static void</td>
+	<td><a href="java-thread-dumpstack-method">dumpStack()</a></td>
+	<td>It is used to print a stack trace of the current thread to the standard error stream.</td>
+</tr>
+<tr>
+	<td>26)</td>
+	<td>StackTraceElement[]</td>
+	<td><a href="java-thread-getstacktrace-method">getStackTrace()</a></td>
+	<td>It returns an array of stack trace elements representing the stack dump of the thread.</td>
+</tr>
+<tr>
+	<td>27)</td>
+	<td>static int</td>
+	<td><a href="java-thread-enumerate-method">enumerate()</a></td>
+	<td>It is used to copy every active thread's thread group and its subgroup into the specified array.</td>
+</tr>
+<tr>
+	<td>28)</td>
+	<td>Thread.State</td>
+	<td><a href="java-thread-getstate-method">getState()</a></td>
+	<td>It is used to return the state of the thread.</td>
+</tr>
+<tr>
+	<td>29)</td>
+	<td>ThreadGroup</td>
+	<td><a href="java-thread-getthreadgroup-method">getThreadGroup()</a></td>
+	<td>It is used to return the thread group to which this thread belongs</td>
+</tr>
+<tr>
+	<td>30)</td>
+	<td>String</td>
+	<td><a href="java-thread-tostring-method">toString()</a></td>
+	<td>It is used to return a string representation of this thread, including the thread's name, priority, and thread group.</td>
+</tr>
+<tr>
+	<td>31)</td>
+	<td>void</td>
+	<td><a href="java-thread-notify-method">notify()</a></td>
+	<td>It is used to give the notification for only one thread which is waiting for a particular object.</td>
+</tr>
+<tr>
+	<td>32)</td>
+	<td>void</td>
+	<td><a href="java-thread-notifyall-method">notifyAll()</a></td>
+	<td>It is used to give the notification to all waiting threads of a particular object.</td>
+</tr>
+<tr>
+	<td>33)</td>
+	<td>void</td>
+	<td><a href="java-thread-setcontextclassloader-method">setContextClassLoader()</a></td>
+	<td>It sets the context ClassLoader for the Thread.</td>
+</tr>
+<tr>
+	<td>34)</td>
+	<td>ClassLoader</td>
+	<td><a href="java-thread-getcontextclassloader-method">getContextClassLoader()</a></td>
+	<td>It returns the context ClassLoader for the thread.</td>
+</tr>
+<tr>
+	<td>35)</td>
+	<td>static Thread.UncaughtExceptionHandler</td>
+	<td><a href="java-thread-getdefaultuncaughtexceptionhandler-method">getDefaultUncaughtExceptionHandler()</a></td>
+	<td>It returns the default handler invoked when a thread abruptly terminates due to an uncaught exception.</td>
+</tr>
+<tr>
+	<td>36)</td>
+	<td>static void	</td>
+	<td><a href="java-thread-setdefaultuncaughtexceptionhandler-method">setDefaultUncaughtExceptionHandler()</a></td>
+	<td>It sets the default handler invoked when a thread abruptly terminates due to an uncaught exception.</td>
+</tr>
+</table>
+        
+		
+
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

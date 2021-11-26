@@ -1,0 +1,181 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | KnapSack DP  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js">
+    </script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+          	<strong class="ribbon-content">KnapSack DP </strong>
+    	    </h1>
+    	    <br>
+    	    <br>
+    	    <div class="probState">
+    	    	<p>
+    	    		<strong>Problem Statement :
+    	    		</strong>
+    	     		A thief is robbing a store and can carry a maximal weight of W into his knapsack. There are n items available in the store and weight of ith item is wi and its profit is pi. What items should the thief take?
+    	    </div>
+    	    <br>
+    	    <br>
+    		<div class="probState" style="background-color:white;border: none;">
+                <pre style="color:black;font-size: 15px ;">
+import java.util.Scanner;
+
+public class Lab6A {
+
+    public static void main(String[] args) {
+
+    int v[][]=new int[10][10], w[]=new int[10], p[]=new int[10]; 
+    Scanner in = new Scanner(System.in); int i, j;
+
+    System.out.println("************* KNAPSACK  PROBLEM ***********");
+
+    System.out.println("Enter the total number of items: "); 
+    int n = in.nextInt();
+
+    System.out.println("Enter the weight of each item: ");
+
+    for(i=1;i<=n;i++)
+        w[i] = in.nextInt();
+
+    System.out.println("Enter the profit of each item: "); 
+    for(i=1;i<=n;i++)
+        p[i] = in.nextInt();
+
+    System.out.println("Enter the knapsack capacity:    ");
+
+    int m= in.nextInt();
+    displayinfo(m,n,w,p);
+
+    knapsack(m,n,w,p,v);
+
+    System.out.println("The contents of the knapsack table are"); 
+    for(i=0; i<=n; i++){
+        for(j=0; j<=m; j++){
+            System.out.print(v[i][j]+" " );
+        }
+        System.out.println();
+    }
+
+    optimal(m,n,w,v); //call optimal function
+    }
+
+    static void displayinfo(int m,int n,int w[],int p[]){
+        System.out.println("Entered information about knapsack problem are");
+
+        System.out.println("ITEM\tWEIGHT\tPROFIT"); 
+            for(int i=1; i<=n; i++)
+                System.out.println(i+"\t"+w[i]+"\t"+p[i]); 
+                System.out.println("Capacity = "+m);
+    }
+
+    static void knapsack(int m,int n,int w[],int p[],int v[][]){ 
+        for(int i=0; i<=n; i++){
+            for(int j=0; j<=m; j++){
+                if(i==0 ||j==0)
+                    v[i][j]=0;
+
+                else if(j < w[i])
+                    v[i][j]=v[i-1][j];
+
+                else
+                    v[i][j]=max(v[i-1][j], v[i-1][j-w[i]]+p[i]);
+
+            }
+        }
+
+    }
+    private static int max(int i, int j) { 
+        if(i>j)
+            return i;
+        else 
+            return j;
+    }
+
+    static void optimal(int m,int n,int w[],int v[][]){ 
+        int i = n, j = m, item=0;
+
+        int x[]=new int[10];
+        while( i != 0 && j != 0){
+
+            if(v[i][j] != v[i-1][j]){
+                x[i] = 1;
+
+                j = j-w[i];
+            }
+
+            i = i-1;
+        }
+
+        System.out.println("Optimal solution is :"+ v[n][m]); 
+        System.out.println("Selected items are: ");
+        for(i=1; i<= n;i++)
+            if(x[i] == 1){
+                System.out.print(i+" ");
+                item=1;
+            }
+
+        if(item == 0)
+
+            System.out.println("NIL\t Sorry ! No item can be placed in Knapsack");
+
+        System.out.println("\n******************************** *************");
+
+    }
+}
+    
+
+                </pre>
+			</div>
+			<br>
+            <br>
+		</div>
+</body>
+
+</html>

@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Design And Analysis Virtual Lab</title>
+
+<!--   <script>
+      var site_url = 'http://www.cmrit.ac.in';
+      var template_url = 'http://www.cmrit.ac.in/wp-content/themes/cmr';
+  </script> -->
+
+    <!-- Facebook Pixel Code -->
+  <script>
+      !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+              n.callMethod ?
+                  n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = '2.0';
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s)
+      }(window,
+          document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1396459930378494', {
+          em: 'insert_email_variable,'
+      });
+      fbq('track', 'PageView');
+  </script>
+  <noscript>
+  	<img 	height="1" 
+  				width="1" 
+  				style="display:none"
+          src="https://www.facebook.com/tr?id=1396459930378494&ev=PageView&noscript=1"
+    />
+  </noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+
+
+    <!-- This site is optimized with the Yoast SEO plugin v3.1 - https://yoast.com/wordpress/plugins/seo/ -->
+  
+  <script type="text/javascript">
+      window._wpemojiSettings = {
+          "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+          "ext": ".png",
+          "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+          "svgExt": ".svg",
+          "source": {"concatemoji": "https:\/\/www.cmrit.ac.in\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.6"}
+      };
+      !function (a, b, c) {
+          function d(a) {
+              var b, c, d, e, f = String.fromCharCode;
+              if (!k || !k.fillText) return !1;
+              switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                  case"flag":
+                      return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                  case"emoji4":
+                      return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+              }
+              return !1
+          }
+
+          function e(a) {
+              var c = b.createElement("script");
+              c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+          }
+
+          var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+          for (i = Array("flag", "emoji4"), c.supports = {
+              everything: !0,
+              everythingExceptFlag: !0
+          }, h = 0; h < i.length; h++) c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+          c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+              c.DOMReady = !0
+          }, c.supports.everything || (g = function () {
+              c.readyCallback()
+          }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+              "complete" === b.readyState && c.readyCallback()
+          })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+      }(window, document, window._wpemojiSettings);
+  </script>
+  <style>
+    #banner .gray-images {
+        -webkit-filter: grayscale(80%);
+    }
+	</style>
+  <style type="text/css">
+      img.wp-smiley,
+      img.emoji {
+          display: inline !important;
+          border: none !important;
+          box-shadow: none !important;
+          height: 1em !important;
+          width: 1em !important;
+          margin: 0 .07em !important;
+          vertical-align: -0.1em !important;
+          background: none !important;
+          padding: 0 !important;
+      }
+  </style>
+  
+  <!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal disabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-49395698-1']);
+      _gaq.push(['_gat._forceSSL']);
+      _gaq.push(['_trackPageview']);
+
+      (function () {
+          var ga = document.createElement('script');
+          ga.type = 'text/javascript';
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(ga, s);
+      })();
+
+  </script>
+    <!-- / Google Analytics by Yoast -->
+  
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+        href="http://www.cmrit.ac.in/wp-includes/wlwmanifest.xml" />
+  <meta name="generator" content="WordPress 4.7.6"/>
+  <link rel='shortlink' href='http://www.cmrit.ac.in/?p=1772' />
+  <link rel="alternate" type="application/json+oembed"
+        href="http://www.cmrit.ac.in/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.cmrit.ac.in%2Fstudent-clubs%2F" />
+  <link rel="alternate" type="text/xml+oembed"
+        href="http://www.cmrit.ac.in/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.cmrit.ac.in%2Fstudent-clubs%2F&#038;format=xml" />
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <style>
+ 		#responsive-menu-button, #responsive-menu-container, #responsive-menu-header {
+      display: none;
+  	}
+
+    @media screen and (max-width: 1024px) {
+        #responsive-menu-container, #responsive-menu-header {
+            display: block;
+        }
+
+        #responsive-menu-container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            /* Fix for scroll bars appearing when not needed */
+            z-index: 9998;
+            padding-bottom: 5px;
+            margin-bottom: -5px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #responsive-menu-container .responsive-menu-search-box {
+            width: 100%;
+            padding: 0 2%;
+            border-radius: 2px;
+            border: 2px solid #dadada;
+            height: 50px;
+            background: white;
+        }
+
+        #responsive-menu-container.push-left, #responsive-menu-container.slide-left {
+            transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+            -webkit-transform: translateX(-100%);
+            -moz-transform: translateX(-100%);
+        }
+
+        .responsive-menu-open #responsive-menu-container.push-left, .responsive-menu-open #responsive-menu-container.slide-left {
+            transform: translateX(0);
+            -ms-transform: translateX(0);
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+        }
+
+        #responsive-menu-container.push-top, #responsive-menu-container.slide-top {
+            transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+        }
+
+        .responsive-menu-open #responsive-menu-container.push-top, .responsive-menu-open #responsive-menu-container.slide-top {
+            transform: translateY(0);
+            -ms-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+        }
+
+        #responsive-menu-container.push-right, #responsive-menu-container.slide-right {
+            transform: translateX(100%);
+            -ms-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            -moz-transform: translateX(100%);
+        }
+
+        .responsive-menu-open #responsive-menu-container.push-right, .responsive-menu-open #responsive-menu-container.slide-right {
+            transform: translateX(0);
+            -ms-transform: translateX(0);
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+        }
+
+        #responsive-menu-container.push-bottom, #responsive-menu-container.slide-bottom {
+            transform: translateY(100%);
+            -ms-transform: translateY(100%);
+            -webkit-transform: translateY(100%);
+            -moz-transform: translateY(100%);
+        }
+
+        .responsive-menu-open #responsive-menu-container.push-bottom, .responsive-menu-open #responsive-menu-container.slide-bottom {
+            transform: translateY(0);
+            -ms-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+        }
+
+        #responsive-menu-container, #responsive-menu-container:before, #responsive-menu-container:after, #responsive-menu-container *, #responsive-menu-container *:before, #responsive-menu-container *:after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #responsive-menu-container #responsive-menu-search-box, #responsive-menu-container #responsive-menu-additional-content, #responsive-menu-container #responsive-menu-title {
+            padding: 25px 5%;
+        }
+
+        #responsive-menu-container #responsive-menu, #responsive-menu-container #responsive-menu ul {
+            width: 100%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu {
+            display: none;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu.responsive-menu-submenu-open {
+            display: block;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-1 a.responsive-menu-item-link {
+            padding-left: 10%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-2 a.responsive-menu-item-link {
+            padding-left: 15%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-3 a.responsive-menu-item-link {
+            padding-left: 20%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-4 a.responsive-menu-item-link {
+            padding-left: 25%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-5 a.responsive-menu-item-link {
+            padding-left: 30%;
+        }
+
+        #responsive-menu-container #responsive-menu ul.responsive-menu-submenu-depth-6 a.responsive-menu-item-link {
+            padding-left: 35%;
+        }
+
+        #responsive-menu-container li.responsive-menu-item {
+            width: 100%;
+            list-style: none;
+        }
+
+        #responsive-menu-container li.responsive-menu-item a {
+            width: 100%;
+            display: block;
+            margin-top: -1px;
+            text-decoration: none;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        #responsive-menu-container li.responsive-menu-item a .fa {
+            margin-right: 15px;
+        }
+
+        #responsive-menu-container li.responsive-menu-item a .responsive-menu-subarrow {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #responsive-menu-container li.responsive-menu-item a .responsive-menu-subarrow .fa {
+            margin-right: 0;
+        }
+
+        .responsive-menu-button .responsive-menu-button-icon-inactive {
+            display: none;
+        }
+
+        #responsive-menu-button {
+            z-index: 9999;
+            display: none;
+            overflow: hidden;
+        }
+
+        #responsive-menu-button img {
+            max-width: 100%;
+        }
+
+        .responsive-menu-label {
+            display: inline-block;
+            font-weight: 600;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        .responsive-menu-accessible {
+            display: inline-block;
+        }
+
+        .responsive-menu-accessible .responsive-menu-box {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .responsive-menu-label.responsive-menu-label-top, .responsive-menu-label.responsive-menu-label-bottom {
+            display: block;
+            margin: 10px auto;
+        }
+
+        #responsive-menu-header {
+            width: 100%;
+            padding: 0 5%;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: none;
+        }
+
+        #responsive-menu-header .responsive-menu-header-box {
+            display: inline-block;
+        }
+
+        #responsive-menu-header .responsive-menu-header-box, #responsive-menu-header .responsive-menu-header-box img {
+            vertical-align: middle;
+            max-width: 100%;
+        }
+
+        #responsive-menu-header .responsive-menu-header-box:last-child {
+            float: right;
+            margin-right: 0;
+        }
+
+        #responsive-menu-header #responsive-menu-button {
+            position: relative;
+            margin: 0;
+            left: auto;
+            right: auto;
+            bottom: auto;
+        }
+
+        #responsive-menu-header .responsive-menu-header-box {
+            margin-right: 2%;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        /*!
+       * Hamburgers
+       * @description Tasty CSS-animated hamburgers
+       * @author Jonathan Suh @jonsuh
+       * @site https://jonsuh.com/hamburgers
+       * @link https://github.com/jonsuh/hamburgers
+       */
+        /*
+         * Boring
+         */
+        
+        .responsive-menu-button {
+            padding: 0 0;
+            display: inline-block;
+            cursor: pointer;
+            transition-property: opacity, filter;
+            transition-duration: 0.15s;
+            transition-timing-function: linear;
+            font: inherit;
+            color: inherit;
+            text-transform: none;
+            background-color: transparent;
+            border: 0;
+            margin: 0;
+            overflow: visible;
+        }
+
+        .responsive-menu-button:hover {
+            opacity: 1;
+        }
+
+        .responsive-menu-box {
+            width: 25px;
+            height: 19px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .responsive-menu-inner {
+            display: block;
+            top: 50%;
+            margin-top: -1.5px;
+        }
+
+        .responsive-menu-inner, .responsive-menu-inner::before, .responsive-menu-inner::after {
+            width: 25px;
+            height: 3px;
+            background-color: #3c87a8;
+            border-radius: 4px;
+            position: absolute;
+            transition-property: transform;
+            transition-duration: 0.15s;
+            transition-timing-function: ease;
+        }
+
+        .responsive-menu-inner::before, .responsive-menu-inner::after {
+            content: "";
+            display: block;
+        }
+
+        .responsive-menu-inner::before {
+            top: -8px;
+        }
+
+        .responsive-menu-inner::after {
+            bottom: -8px;
+        }
+
+        .responsive-menu-boring .responsive-menu-inner, .responsive-menu-boring .responsive-menu-inner::before, .responsive-menu-boring .responsive-menu-inner::after {
+            transition-property: none;
+        }
+
+        .responsive-menu-boring.is-active .responsive-menu-inner {
+            transform: rotate(45deg);
+        }
+
+        .responsive-menu-boring.is-active .responsive-menu-inner::before {
+            top: 0;
+            opacity: 0;
+        }
+
+        .responsive-menu-boring.is-active .responsive-menu-inner::after {
+            bottom: 0;
+            transform: rotate(-90deg);
+        }
+
+        .responsive-menu-button {
+            width: 55px;
+            height: 55px;
+            position: fixed;
+            top: 15px;
+            right: 1%;
+        }
+
+        .responsive-menu-button .responsive-menu-box {
+            color: #3c87a8;
+        }
+
+        .responsive-menu-label {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        #responsive-menu-button {
+            display: inline-block;
+            transition: transform 0.5s, background-color 0.5s;
+        }
+    
+    
+    @media screen and (max-width: 1024px) {
+        #responsive-menu-container {
+            width: 100%;
+            top: 0;
+            background: #36454d;
+            transition: transform 0.5s;
+            text-align: left;
+        }
+
+        #responsive-menu-container #responsive-menu-wrapper {
+            background: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu-additional-content {
+            color: #fff;
+        }
+
+        #responsive-menu-container a, #responsive-menu-container #responsive-menu-title, #responsive-menu-container .responsive-menu-subarrow {
+            transition: all 0.5s;
+        }
+
+        #responsive-menu-container #responsive-menu-title {
+            background-color: #36454d;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        #responsive-menu-container #responsive-menu-title a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #responsive-menu-container #responsive-menu-title a:hover {
+            color: #fff;
+        }
+
+        #responsive-menu-container #responsive-menu-title:hover {
+            background-color: #36454d;
+            color: #fff;
+        }
+
+        #responsive-menu-container #responsive-menu-title:hover a {
+            color: #fff;
+        }
+
+        #responsive-menu-container #responsive-menu-title #responsive-menu-title-image {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item .responsive-menu-item-link {
+            font-size: 13px;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item a {
+            line-height: 40px;
+            border: 1px solid #36454d;
+            color: #fff;
+            background-color: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item a:hover {
+            color: #fff;
+            background-color: #3f3f3f;
+            border-color: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item a:hover .responsive-menu-subarrow {
+            color: #3c87a8;
+            border-color: #fff;
+            background-color: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item a .responsive-menu-subarrow {
+            height: 40px;
+            line-height: 40px;
+            width: 40px;
+            color: #3c87a8;
+            border: 1px solid #36454d;
+            background-color: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item a .responsive-menu-subarrow:hover {
+            color: #3c87a8;
+            border-color: #fff;
+            background-color: #36454d;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item.responsive-menu-current-item > .responsive-menu-item-link {
+            background-color: #36454d;
+            color: #fff;
+        }
+
+        #responsive-menu-container #responsive-menu li.responsive-menu-item.responsive-menu-current-item > .responsive-menu-item-link:hover {
+            background-color: #36454d;
+            color: #fff;
+        }
+    }
+    </style>
+
+    <style>
+        
+        a{
+                text-decoration: none;
+            }
+            
+                ul {
+                    list-style-type: none;
+                  }
+        	table,td,th,tr
+        	{ border:1.2px dashed black;
+                border-collapse: collapse;
+                height: 315px;
+        	}
+               
+               
+        	#p_1
+        	{
+        		margin: 5px;padding: 10px;color: white;font-size: 35px;
+        		font-family: Verdana;font-weight: lighter;
+        	}
+
+		.container {
+		  position: relative;
+		  text-align: center;
+		  color: white;
+		}
+
+		.bottom-left {
+		    position: absolute;
+		    bottom: 15%;
+		    left: 20%;
+		    color:#dadada;
+		    font-size: 18px;
+		    font-family: Verdana;
+		    
+		}
+    .mybtn{
+        padding:15px 30px;
+        font-weight:bold ;
+        margin:10px ;
+        background-image: linear-gradient(to right, blue, purple);
+        color:white;
+        border-radius:10px;"
+    }
+
+		.top-left {
+		  position: absolute;
+		  top: 15%;
+		  left: 20%;
+		  color:#dadada;
+		  font-size: 40px;
+		  font-family: Verdana;
+		  font-weight: 500;
+		}
+
+		.bottom-right {
+			position: absolute;
+			bottom: 5%;
+			right: 15%;
+			color:white;
+			font-size: 18px;
+			font-family: Verdana;
+		}
+        
+        
+		/************robo***********/
+        
+		.robots {
+			flex-wrap: wrap;
+			display: flex;
+			padding-left:  200px ;
+			padding-top: 50px ;
+		}
+
+		.head, 
+		.left_arm, 
+		.torso, 
+		.right_arm, 
+		.left_leg, 
+		.right_leg {
+			 background-color: #5f93e8;
+		}
+
+		.head { 
+			width: 200px; 
+			margin: 0 auto; 
+			height: 150px; 
+			border-radius: 200px 200px 0 0; 
+			margin-bottom: 10px;
+		} 
+
+		.eyes {
+			display: flex
+		}
+
+		.head:hover {
+		width: 220px;
+		  transition: 0.5s ease-in-out;
+		}
+
+		.upper_body { 
+		width: 300px; 
+		height: 150px;
+		display: flex; 
+		} 
+
+		.left_arm, .right_arm { 
+		width: 40px; 
+		height: 125px;
+		border-radius: 100px; 
+		} 
+
+		.left_arm { 
+		margin-right: 10px; 
+		}
+
+
+		.right_arm { 
+		margin-left: 10px; 
+		  transition: all 1s ;
+		} 
+		      
+		      .right_arm:hover{
+		          transform: rotate(30deg);
+		      }
+		.torso { 
+		width: 200px; 
+		height: 200px;
+		border-radius: 0 0 50px 50px; 
+		} 
+
+		.lower_body { 
+		width: 200px; 
+		height: 200px;
+		/* This is another useful property. Hmm what do you think it does?*/
+		margin: 0 auto;
+		display: flex; 
+		} 
+
+		.left_leg, .right_leg { 
+		width: 40px; 
+		height: 120px;
+		border-radius: 0 0 100px 100px; 
+		} 
+
+		.left_leg { 
+		margin-left: 45px; 
+		} 
+
+		.left_leg:hover {
+		-webkit-transform: rotate(20deg);
+		  -moz-transform: rotate(20deg);
+		  -o-transform: rotate(20deg);
+		  -ms-transform: rotate(20deg);
+		  transform: rotate(20deg);
+		}
+
+		.right_leg { 
+		margin-left: 30px; 
+		}
+		      
+		.right_leg:hover{
+		      transform: rotate(-20deg);    
+		}
+
+		.left_eye, .right_eye { 
+		width: 20px; 
+		height: 20px; 
+		border-radius: 15px; 
+		background-color: white;  
+		  
+		} 
+
+		.left_eye { 
+
+		position: relative; 
+		top: 70px; 
+		left: 40px; 
+		}
+        
+    .left_eye:hover{
+        transform: scale(1.1) ;
+        background-color: #5f93e8 ;
+        
+    }
+    
+     .right_eye:hover{
+        transform: scale(1.1) ;
+        background-color: #5f93e8 ;
+        
+    }
+
+
+		.right_eye { 
+		position: relative; 
+		top: 70px; 
+		left: 120px; 
+		}
+
+    .mouth{
+        width: 20px; 
+     height: 5px; 
+        position: relative; 
+         top: 115px; 
+         left: 50px; 
+        background-color: white ;
+        transition: all 0.5s ;
+        
+    }
+    .mouth:hover{
+        
+            width: 40px; 
+         height: 25px; 
+         left: 45px; 
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+
+		/****************************/
+        
+ 
+        
+		.typewriter h5 {
+		  color: #fff;
+		  font-family: Courier,monospace;
+		 
+		  border-right: .15em solid black; /* The typwriter cursor */
+		  white-space: nowrap; /* Keeps the content on a single line */
+		  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+		  letter-spacing: .15em; /* Adjust as needed */
+		  animation: 
+		    typing 3.5s steps(30, end),
+		    blink-caret .5s step-end infinite;
+		}
+
+		/* The typing effect */
+		@keyframes typing {
+		  from { width: 0 }
+		  to { width: 100% }
+		}
+
+		/* The typewriter cursor effect */
+		@keyframes blink-caret {
+		  from, to { border-color: transparent }
+		  50% { border-color: transparent}
+		}
+
+		@keyframes typing {
+		    from { 
+		        width: 70% 
+		    }
+		    to { 
+		        width: 100% 
+		            height:100% ;
+		    }
+		}
+
+		@keyframes blink {
+		    from, to { 
+		        border-color: transparent 
+		    }
+		    50% { 
+		        border-color: black; 
+		    }
+		}
+		        .col-sm-8{
+		            border: 1px solid gray ;
+		            border-radius: 10px ;
+		            
+		            padding: 50px ;
+		            
+		        }
+		        
+		        @media screen and (max-width: 1024px){
+		            
+		             .mydiv{
+		            background-color:#17141F;
+		          font-size:60%; ;
+		             
+		          
+		            
+		        }
+            
+            /*#myInput {
+             background-image: url("../image/icons8-search.png");
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+              width: 50%;
+              font-size: 16px;
+              padding: 12px 20px 12px 40px;
+              border: 1px solid #ddd;
+            border-radius: 30px ;
+              margin-bottom: 12px;
+            background-color: white ;
+            color: black ;
+            }*/
+           .vhead1{
+            transform: scale(0.5) ;
+              
+        }
+            .vhead2{
+                transform: scale(0.5) ;
+                top: 10% ;
+            }
+            
+            
+            .robots{
+                transform: scale(0.65) ;
+                
+            }
+            .bottom-right{
+                right:200px ;
+            }
+            
+            .mouth{
+            width: 20px; 
+	       height: 5px; 
+            position: relative; 
+	           top: 115px; 
+	           left: 50px; 
+            background-color: white ;
+            transition: all 0.5s ;
+             width: 40px; 
+	           height: 25px; 
+             left: 45px; 
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+        }
+            
+            #sectionProgram{
+               background-color:#100F17;
+                padding:100px ;
+                  height: auto; ;
+               
+              
+            }
+           
+        }
+        
+        body{
+             background-color:#100F17;
+               
+        }
+       
+        .mydiv:nth-child(odd){
+            background-color:#17141F;padding:20px;border:2px solid #35313e;border-radius:18px ;
+            margin:20px ;
+            transition: width 1.4s ;
+            width: 80% ;
+            float: right ;
+            
+        }
+        .mydiv:nth-child(even){
+            background-color:#17141F;padding:20px;border:2px solid #35313e;border-radius:18px ;
+            margin:20px ;
+            transition: width 1.4s ;
+            width: 80% ;
+            float: left ;
+            
+        }
+        .mydiv:hover{
+		/*            transition-delay: 5s ;*/
+            width: 100% ;
+            
+            
+        }
+        .myheading {
+            font-size:30px ;
+            color:white;
+            font-family: 'Pacifico', cursive;
+        }
+        
+        #myInput {
+             background-image: url("../image/icons8-search.png");
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+              width: 50%;
+              font-size: 16px;
+           
+              padding: 12px 20px 12px 40px;
+              border: 1px solid #ddd;
+            border-radius: 30px ;
+              margin-bottom: 12px;
+            background-color: white ;
+            color: black ;
+            }
+        .vhead1,.vhead2{
+            color:white ;  font-family: Courier,monospace; position: absolute;font-size: 50px;
+        }
+        
+        #sectionProgram {
+                background-color:#100F17;padding:100px ;height: 4000px ;
+        
+        }
+ 	</style>
+</head>
+
+<body>
+    <div  class="vhead1" style=" bottom: 80%;right: 28%; "><p>Welcome To Virtual Lab</p> </div>
+    <br/><br/><br/><br/><br/>
+    <center style="color:white;font-size: 40px;">Project By : Sherly Noel</center><br/><br/>
+    <center style="color:white;font-size: 40px;">Design and Analysis of Algorithms</center>
+    
+
+<div id="sectionProgram" >
+    <center>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" >
+    </center> 
+    <div class="mydiv" >
+      <center> <p class="myheading">Java Classes and Object</p>
+       <a href="../Student/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Student/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Student/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Stack</p>
+       <a href="../Stack/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Stack/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Stack/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Classes and Inheritance</p>
+       <a href="../Classes_Inheritance/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Classes_Inheritance/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Classes_Inheritance/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    <div class="mydiv" >
+    
+      <center> <p class="myheading" >String Tokenizer Class</p>
+       <a href="../StringTokenizer/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../StringTokenizer/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../StringTokenizer/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading" >Exception Handling</p>
+       <a href="../ExceptionHandling/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../ExceptionHandling/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../ExceptionHandling/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+      <center> <p class="myheading">Multi Threading </p>
+       <a href="../Multithreading/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Multithreading/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Multithreading/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Quick Sort</p>
+       <a href="../QuickSort/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../QuickSort/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../QuickSort/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Merge Sort</p>
+       <a href="../MergeSort/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../MergeSort/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../MergeSort/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">KnapSack Greedy Approach</p>
+       <a href="../KnapsackGreedy/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../KnapsackGreedy/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../KnapsackGreedy/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+     
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Knapsack Dynamic Approach</p>
+       <a href="../KnapsackDynamic/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../KnapsackDynamic/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../KnapsackDynamic/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Dijkstra's Algorithm</p>
+       <a href="../Dijkstra/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Dijkstra/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Dijkstra/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Krushkals Algorithm </p>
+       <a href="../Krushkals/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Krushkals/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Krushkals/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Prims Algorithm</p>
+       <a href="../Prims/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../Prims/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Prims/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    <div class="mydiv" >
+    
+        <center> <p class="myheading">Floyds Algorithm </p>
+       <a href="../Floyds/Code/">  <input type="button" class="mybtn" value="Code"> </a>
+       <a href="../Floyds/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Floyds/Explanation/"> <input type="button" class="mybtn" value="Explanation"> </a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Travelling Sales Man Problem </p>
+       <a href="../TSP/Code/">  <input type="button" class="mybtn" value="Code"> </a>
+       <a href="../TSP/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../TSP/Explanation/"> <input type="button" class="mybtn" value="Explanation"> </a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Subset problem</p>
+       <a href="../Subset/Code/"> <input type="button" class="mybtn" value="Code"></a>
+       <a href="../Subset/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../Subset/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+    
+    <div class="mydiv" >
+    
+       <center> <p class="myheading">Hamiltonian Cycle</p>
+       <a href="../HamiltonCycle/Code/"><input type="button" class="mybtn"  value="Code"></a> 
+           <a href="../HamiltonCycle/HTML/"> <input type="button" class="mybtn" style="background-image: linear-gradient(to right, red, purple);" value="Virtual Lab"></a>
+       <a href="../HamiltonCycle/Explanation/"> <input type="button" class="mybtn" value="Explanation"></a>
+       </center>
+    </div>
+</div>
+
+
+
+<script data-cfasync="false" src="http://www.cmrit.ac.in/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script>
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '70f77c6d909a0b3ddaecce85edf330ed930b7da3';
+    _smartsupp.cookieDomain = 'www.cmrit.ac.in';
+    window.smartsupp || (function (d) {
+        var s, c, o = smartsupp = function () {
+            o._.push(arguments)
+        };
+        o._ = [];
+        s = d.getElementsByTagName('script')[0];
+        c = d.createElement('script');
+        c.type = 'text/javascript';
+        c.charset = 'utf-8';
+        c.async = true;
+        c.src = '//www.smartsuppchat.com/loader.js';
+        s.parentNode.insertBefore(c, s);
+    })(document);
+</script>
+<button id="responsive-menu-button"
+        class="responsive-menu-button responsive-menu-accessible responsive-menu-boring"
+        type="button"
+        aria-label="Menu"><span class="responsive-menu-box"><span class="responsive-menu-inner"></span></span></button>
+<div id="responsive-menu-container"
+     class="
+  push-top  ">
+    <div id="responsive-menu-wrapper">
+                      
+    </div>
+</div>
+<script type='text/javascript' src='http://www.cmrit.ac.in/wp-content/themes/cmr/assets/js/core.js?ver=5'></script>
+<script type='text/javascript'
+        src='http://www.cmrit.ac.in/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpcf7 = {"recaptcha": {"messages": {"empty": "Please verify that you are not a robot."}}};
+    /* ]]> */
+</script>
+<script type='text/javascript'
+        src='http://www.cmrit.ac.in/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.6.1'></script>
+<script type='text/javascript' src='http://www.cmrit.ac.in/wp-includes/js/wp-embed.min.js?ver=4.7.6'></script>
+<script>
+    jQuery(document).ready(function ($) {
+
+        var ResponsiveMenu = {
+            trigger: '#responsive-menu-button',
+            animationSpeed: 500,
+            breakpoint: 1024,
+            pushButton: 'off',
+            animationType: 'push',
+            animationSide: 'top',
+            pageWrapper: '',
+            isOpen: false,
+            triggerTypes: 'click',
+            activeClass: 'is-active',
+            container: '#responsive-menu-container',
+            openClass: 'responsive-menu-open',
+            accordion: 'on',
+            activeArrow: '▲',
+            inactiveArrow: '▼',
+            wrapper: '#responsive-menu-wrapper',
+            closeOnBodyClick: 'off',
+            closeOnLinkClick: 'off',
+            itemTriggerSubMenu: 'off',
+            linkElement: '.responsive-menu-item-link',
+            openMenu: function () {
+                $(this.trigger).addClass(this.activeClass);
+                $('html').addClass(this.openClass);
+                $('.responsive-menu-button-icon-active').hide();
+                $('.responsive-menu-button-icon-inactive').show();
+                this.setWrapperTranslate();
+                this.isOpen = true;
+            },
+            closeMenu: function () {
+                $(this.trigger).removeClass(this.activeClass);
+                $('html').removeClass(this.openClass);
+                $('.responsive-menu-button-icon-inactive').hide();
+                $('.responsive-menu-button-icon-active').show();
+                this.clearWrapperTranslate();
+                this.isOpen = false;
+            },
+            triggerMenu: function () {
+                this.isOpen ? this.closeMenu() : this.openMenu();
+            },
+            triggerSubArrow: function (subarrow) {
+                var sub_menu = $(subarrow).parent().next('.responsive-menu-submenu');
+                var self = this;
+                if (this.accordion == 'on') {
+                    /* Get Top Most Parent and the siblings */
+                    var top_siblings = sub_menu.parents('.responsive-menu-item-has-children').last().siblings('.responsive-menu-item-has-children');
+                    var first_siblings = sub_menu.parents('.responsive-menu-item-has-children').first().siblings('.responsive-menu-item-has-children');
+                    /* Close up just the top level parents to key the rest as it was */
+                    top_siblings.children('.responsive-menu-submenu').slideUp(200, 'linear').removeClass('responsive-menu-submenu-open');
+                    /* Set each parent arrow to inactive */
+                    top_siblings.each(function () {
+                        $(this).find('.responsive-menu-subarrow').first().html(self.inactiveArrow);
+                    });
+                    /* Now Repeat for the current item siblings */
+                    first_siblings.children('.responsive-menu-submenu').slideUp(200, 'linear').removeClass('responsive-menu-submenu-open');
+                    first_siblings.each(function () {
+                        $(this).find('.responsive-menu-subarrow').first().html(self.inactiveArrow);
+                    });
+                }
+                if (sub_menu.hasClass('responsive-menu-submenu-open')) {
+                    sub_menu.slideUp(200, 'linear').removeClass('responsive-menu-submenu-open');
+                    $(subarrow).html(this.inactiveArrow);
+                } else {
+                    sub_menu.slideDown(200, 'linear').addClass('responsive-menu-submenu-open');
+                    $(subarrow).html(this.activeArrow);
+                }
+            },
+            menuHeight: function () {
+                return $(this.container).height();
+            },
+            menuWidth: function () {
+                return $(this.container).width();
+            },
+            wrapperHeight: function () {
+                return $(this.wrapper).height();
+            },
+            setWrapperTranslate: function () {
+                switch (this.animationSide) {
+                    case 'left':
+                        translate = 'translateX(' + this.menuWidth() + 'px)';
+                        break;
+                    case 'right':
+                        translate = 'translateX(-' + this.menuWidth() + 'px)';
+                        break;
+                    case 'top':
+                        translate = 'translateY(' + this.wrapperHeight() + 'px)';
+                        break;
+                    case 'bottom':
+                        translate = 'translateY(-' + this.menuHeight() + 'px)';
+                        break;
+                }
+                if (this.animationType == 'push') {
+                    $(this.pageWrapper).css({'transform': translate});
+                    $('html, body').css('overflow-x', 'hidden');
+                }
+                if (this.pushButton == 'on') {
+                    $('#responsive-menu-button').css({'transform': translate});
+                }
+            },
+            clearWrapperTranslate: function () {
+                self = this;
+                if (this.animationType == 'push') {
+                    $(this.pageWrapper).css({'transform': ''});
+                    setTimeout(function () {
+                        $('html, body').css('overflow-x', '');
+                    }, self.animationSpeed);
+                }
+                if (this.pushButton == 'on') {
+                    $('#responsive-menu-button').css({'transform': ''});
+                }
+            },
+            init: function () {
+                var self = this;
+                $(this.trigger).on(this.triggerTypes, function (e) {
+                    e.stopPropagation();
+                    self.triggerMenu();
+                });
+                $('.responsive-menu-subarrow').on('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    self.triggerSubArrow(this);
+                });
+                $(window).resize(function () {
+                    if ($(window).width() > self.breakpoint) {
+                        if (self.isOpen) {
+                            self.closeMenu();
+                        }
+                    } else {
+                        if ($('.responsive-menu-open').length > 0) {
+                            self.setWrapperTranslate();
+                        }
+                    }
+                });
+                if (this.closeOnLinkClick == 'on') {
+                    $(this.linkElement).on('click', function (e) {
+                        e.preventDefault();
+                        old_href = $(this).attr('href');
+                        if (self.isOpen) {
+                            if ($(e.target).closest('.responsive-menu-subarrow').length) {
+                                return;
+                            }
+                            self.closeMenu();
+                            setTimeout(function () {
+                                window.location = old_href;
+                            }, self.animationSpeed);
+                        }
+                    });
+                }
+                if (this.closeOnBodyClick == 'on') {
+                    $(document).on('click', 'body', function (e) {
+                        if (self.isOpen) {
+                            if ($(e.target).closest('#responsive-menu-container').length || $(e.target).closest('#responsive-menu-button').length) {
+                                return;
+                            }
+                        }
+                        self.closeMenu();
+                    });
+                }
+                if (this.itemTriggerSubMenu == 'on') {
+                    $('.responsive-menu-item-has-children > ' + this.linkElement).on('click', function (e) {
+                        e.preventDefault();
+                        self.triggerSubArrow($(this).children('.responsive-menu-subarrow').first());
+                    });
+                }
+            }
+        };
+        ResponsiveMenu.init();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#calendar .filters li.all a').click(function () {
+            $('#calendar .filters li.calendar_events_list').slideToggle("slow");
+        });
+    });
+    /******************search engine *********************/
+    var input = document.getElementById("myInput");
+input.addEventListener("keyup", myFunction);
+
+function myFunction(e) {
+  var filter = e.target.value.toUpperCase();
+
+//  var list = document.getElementById("list");
+  var divs = document.getElementsByClassName("mydiv");
+  for (var i = 0; i < divs.length; i++) {
+    var p = divs[i].getElementsByTagName("p")[0];
+
+    if (p) {
+      if (p.innerHTML.toUpperCase().includes(filter)) {
+        divs[i].style.display = "";
+      } else {
+        divs[i].style.display = "none";
+      }
+        if(filter.length==0){
+            for(var i=0;i<divs.length;i++)
+                divs[i].style.display=" " ;
+        }
+    }
+  }
+
+}
+</script>
+</body>
+</html>
+
+

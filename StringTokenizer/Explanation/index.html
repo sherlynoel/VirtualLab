@@ -1,0 +1,164 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | String Tokenizer </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+			<a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">StringTokenizer</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Write a Java class called Customer to store their name and
+date_of_birth. The date_of_birth format should be dd/mm/yyyy.
+Write methods to read customer data as {name, dd/mm/yyyy} and
+display as {name, dd, mm, yyyy} using StringTokenizer class
+considering the delimiter character as "/"
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+      <div class="probState" style="background-color:white;color:black;border: none;padding: 50px;">
+      	<h4><b>StringTokenizer | String</b></h4>
+      	<p>
+      		<p>
+      			The <b>java.util.StringTokenizer</b> class allows you to break a string into tokens. It is simple way to break string
+      		</p>
+      		<p>
+      			It doesn't provide the facility to differentiate numbers, quoted strings, identifiers etc. like StreamTokenizer class.
+      		</p>
+      	</p>
+      	<br><br>
+      	<h4><b>Constructors</b></h4><br>
+      	<table class="table table-striped">
+      		<thead>
+	      		<tr>
+	      			<th>
+	      				Constructor
+	      			</th>
+	      			<th>
+	      				Description
+	      			</th>
+	      		</tr>
+	      	</thead>
+	      	<tbody>
+	      		<tr>
+	      			<td>
+	      				StringTokenizer(String str)
+	      			</td>
+	      			<td>
+	      				creates StringTokenizer with specified string.
+	      			</td>
+	      		</tr>
+	      		<tr>
+	      			<td>
+	      				StringTokenizer(String str, String delim)
+	      			</td>
+	      			<td>
+	      				creates StringTokenizer with specified string and delimeter.
+	      			</td>
+	      			
+	      		</tr>
+	      		<tr>
+	      			
+	      			<td>
+	      				StringTokenizer(String str, String delim, boolean returnValue)
+	      			</td>
+	      			<td>
+	      				creates StringTokenizer with specified string, delimeter and returnValue. If return value is true, delimiter characters are considered to be tokens. If it is false, delimiter characters serve to separate tokens
+	      			</td>
+	      		</tr>
+	      	</tbody>
+      	</table><br><br>
+
+      	<h4><b>Methods</b></h4>
+      	<table class="table table-striped">
+					<tr><th>Public method</th><th>Description</th></tr>
+					<tr><td>boolean hasMoreTokens()</td><td>checks if there is more tokens available.</td></tr>
+					<tr><td>String nextToken()</td><td>returns the next token from the StringTokenizer object.</td></tr>
+					<tr><td>String nextToken(String delim)</td><td>returns the next token based on the delimeter.</td></tr>
+					<tr><td>boolean hasMoreElements()</td><td> same as hasMoreTokens() method.</td></tr>
+					<tr><td>Object nextElement()</td><td> same as nextToken() but its return type is Object.</td></tr>
+					<tr><td>int countTokens()</td><td>returns the total number of tokens.</td></tr>
+				</table><br><br><br>
+
+				<h4><b>Example</b></h4>
+				<pre>
+import java.util.StringTokenizer;  
+public class Simple{  
+ public static void main(String args[]){  
+   StringTokenizer st = new StringTokenizer("my name is khan"," ");  
+     while (st.hasMoreTokens()) {  
+         System.out.println(st.nextToken());  
+     }  
+   }  
+} 
+				</pre>
+				<pre>
+Output:my
+       name
+       is
+       khan
+				</pre>
+
+          
+        
+      </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+body{
+        
+        background-color: #CCCCCC ;
+    }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #2D3E52 ;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  padding: 20px 8px 20px 25px; 
+ 
+ 
+}
+#sideNav
+{
+    border-bottom: 2px solid white ;     
+}
+#sideNav:hover {
+background-color: white ;
+  color: black;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+    margin-top:70px ;
+    width: 90% ;
+    background-color: white ;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+ 
+}
+    
+.ribbon {
+ font-size: 20px !important;
+ width: 40%;
+ position: relative;
+ background: #2D3E52;
+ color: #fff;
+ text-align: center;
+    border: 5px solid #FFCF0A ;
+  border-radius: 5px ;
+ padding: 1em 2em; /* Adjust to suit */
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    letter-spacing: 1px ;
+}
+ .probState{
+     
+     width: 90% ;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19);
+     padding: 5px ;
+     border: 5px solid #FFCF0A ;
+     border-radius: 5px ;
+     background-color:#2D3E52 ;
+     color: white ;
+     
+}
+.form {
+    text-align: center;
+     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 80% ;
+    padding: 10px ;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-primary{
+  background-color: #2D3E52; 
+  border: 1px solid #F9D209;
+}
+.btn-primary:hover{
+  border: 1px solid #F9D209;
+}
+
+
+@media screen and (max-width: 600px) {
+  #topNavLink 
+    {
+        color: orange ;
+    
+    }
+  #myicon{
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 844px) {
+  body{
+    top:500px;
+  }
+}

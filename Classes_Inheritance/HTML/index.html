@@ -1,0 +1,231 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Inheritance</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+<style>
+    span{
+        border: 2px dotted white;
+        background-color:  #2D3E52;
+        color: white ;
+    }
+    
+    a,a:hover,a:active{
+        color: white ;
+    }
+    
+</style>	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="150px" height="120px" alt="IMG">
+	    </center>
+	  
+	 <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+    
+    
+    
+    /************************************************MAIN********************************************************************/
+	
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	     <strong class="ribbon-content">Classes and Inheritance</strong>
+	    </h1>
+	    <br>
+	    <br>
+          
+<div class="probState">
+<p>
+<strong>Problem Statement :
+</strong>
+Design a mysuper class called Staff with details as StaffId,
+Name,Phone,Salary. Extend this class by writing three subclasses
+namely Teaching (domain, publications), Technical (skills), and
+Contract (period). Write a Java program to read and display at
+least 3 staff objects of all three categories.
+</p>
+</div>
+<br>
+	    <br>
+<div style="color:white;">
+<div style='border:1px solid black;width: 65% ;margin-left:20%; ' >
+<pre>
+class Staff
+{
+    <span title=" The private members in the base class cannot be directly accessed in the derived class" ><a onclick="changeText('myprivate')" href="#myprivate">private</a> </span> int StaffId;
+    <span title=" The private members in the base class cannot be directly accessed in the derived class" > <a onclick="changeText('myprivate')" href="#myprivate">private</a> </span> String Name;
+    <span title=" The private members in the base class cannot be directly accessed in the derived class." > <a onclick="changeText('myprivate')" href="#myprivate">private</a> </span> String Phone;
+    <span title=" The private members in the base class cannot be directly accessed in the derived class."> <a onclick="changeText('myprivate')" href="#myprivate">private</a> </span> long Salary;
+    
+    <span title=" The public members in the base class can be directly accessed in the derived class." > <a onclick="changeText('mypublic')" href="#mypublic"> public</a> </span>Staff(staffId ,name,phone,salary)
+    {
+        StaffId = staffId;
+        Name = name;
+        Phone = phone;
+        Salary = salary;
+    }
+    <span title=" The public members in the base class can be directly accessed in the derived class." > <a onclick="changeText('mypublic')" href="#mypublic"> public</a> </span> void Display()
+    {
+        System.out.print(StaffId+Name+Phone+Salary);
+    }
+}
+</pre>
+    </div>
+    <br><br>
+    
+    <div style='border:1px solid black;width: 65% ;margin-left:20%;'>
+        <pre>
+class Teaching <span title='Java supports class Inheritance via the extends keyword. myextends specifies a parent-child relationship between two classes.'><a onclick="changeText('myextends')" href="#myextends">extends</a></span> Staff
+{
+    private String Domain;
+    private int Publications;
+    public Teaching(int staffId, String name, String phone,long salary, String domain,publications)
+    {
+        <span title="This is used when we want to call parent class constructor. 
+        It calls Constructor of parent class i.e Staff" ><a onclick="changeText('mysuper')" href="#mysuper">super(staffId, name, phone, salary); </a> </span>
+        Domain = domain;
+        Publications = publications;
+    }
+    public void Display()
+    {
+        <span title="This is used when we want to call parent class method. So whenever a parent and child class have same named methods then to resolve ambiguity we use super keyword.
+        It calls display method of parent class i.e Staff" > <a onclick="changeText('mysuper')" href="#mysuper">super.Display(); </a> </span>
+        System.out.print(" "+Domain+" "+Publications+" ");
+    }
+}
+    </pre>
+            </div><br><br>
+    
+    <div style='border:1px solid black;width: 65% ;margin-left:20%;'>
+        <pre>
+    class Technical <span title='Java supports class Inheritance via the extends keyword. myextends specifies a parent-child relationship between two classes.'><a onclick="changeText('myextends')" href="#myextends">extends</a></span> Staff
+    {
+        private String Skills;
+        public Technical(int staffId, String name, String phone, long salary, String skills) {
+            <span title="This is used when we want to call parent class constructor. 
+            It calls Constructor of parent class i.e Staff" > <a onclick="changeText('mysuper')" href="#mysuper">super(staffId, name, phone, salary); </a> </span>
+           Skills = skills;
+        }
+        public void Display(){
+           <span title="This is used when we want to call parent class method. So whenever a parent and child class have same named methods then to resolve ambiguity we use super keyword.
+           It calls display method of parent class i.e Staff" > <a onclick="changeText('mysuper')" href="#mysuper">super.Display(); </a> </span>
+        
+            System.out.print(Skills);
+        }
+    }
+    </pre>
+    </div><br><br>
+    
+    <div style='border:1px solid black;width: 65% ;margin-left:20%;'>
+        <pre>
+    class Contract <span title='Java supports class Inheritance via the extends keyword. extends specifies a parent-child relationship between two classes.'><a onclick="changeText('myextends')" href="#myextends">extends</a></span> Staff
+    {
+        private int Period;
+        public Contract(int staffId, String name, String phone, long salary, int period) 
+        {
+            <span title="This is used when we want to call parent class constructor. 
+            It calls Constructor of parent class i.e Staff" > <a onclick="changeText('mysuper')" href="#mysuper">super(staffId, name, phone, salary); </a> </span>
+        
+            
+            this.Period = period;
+        }
+        public void Display(){
+             <span title="This is used when we want to call parent class method. So whenever a parent and child class have same named methods then to resolve ambiguity we use super keyword.
+             It calls display method of parent class i.e Staff" ><a onclick="changeText('mysuper')" href="#mysuper">super.Display(); </a>  </span>
+         System.out.print(Period);
+        }
+    }
+        </pre>
+    </div><br><br>
+
+            </div>
+            
+            <div  id="mysummary" style="border: 1px solid black;padding:10px;">
+                <h4>SUMMARY</h4>
+            <p id="myprivate">
+               <b> 1.private Keyword  :</b> The private members in the base class cannot be directly accessed in the derived class.<br>
+                Here In Class Staff private members cannot be accesed by its subclass Teaching,Technical and contract.
+            </p>
+            <p id="mypublic">
+              <b>  2.public Keyword :</b> The public members in the base class can be directly accessed in the derived class.<br>
+                All the public Members of  Class Staff  can be accesed by its subclass Teaching,Technical and contract.
+            </p>
+            <p id="myextends">
+               <b> 3.extends : </b> Java supports class Inheritance via the myextends keyword. myextends specifies a parent-child relationship between two classes.<br>
+                Subclass Teaching,Technical and contract extends the parent class Staff ,This type of inheritance where more than one sub classes are created from a single base class is know as Hierarchical Inheritance
+                
+            </p>
+                
+            <p id="mysuper">
+               <b> 4. super keyword : </b><br>
+                i) Use of super with variables: This scenario occurs when a derived class and base class has same data members. In that case there is a possibility of ambiguity for the JVM. <br>
+                ii) Use of super with methods: This is used when we want to call parent class method. So whenever a parent and child class have same named methods then to resolve ambiguity we use mysuper keyword.<br>
+                iii) Use of super with constructors: super keyword can also be used to access the parent class constructor. One more important thing is that, ‘’mysuper’ can call both parametric as well as non parametric constructors depending upon the situation.<br>
+                
+            </p>
+            </div>
+    </div>
+
+
+
+			<br><br>
+			
+		
+	
+	
+	<script type="text/javascript" >
+    function myreset(){
+        var mysum=document.getElementById("mysummary").children ;
+        for(var i=0;i<5;i++)
+            mysum[i].style.backgroundColor="white" ;
+    }
+    
+    function changeText(id)
+    {   
+        
+        myreset() ;
+        console.log("id"+id) ;
+        var p=document.getElementById(id) ;
+        p.style.backgroundColor="#ffff00" ;
+       
+    }
+    </script>
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+</body>
+
+</html>

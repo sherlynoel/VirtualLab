@@ -1,0 +1,128 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Floyds Algorthim </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+    <a id="sideNav" href="../Code/">Code</a>
+    <a id="sideNav" href="../Explanation/">Program Description</a>
+    <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Floyd Warshall Algorithm</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest distances between every pair of vertices in a given edge weighted directed Graph.
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                    <h4><b>Floyds Algorithm </b></h4>
+ 
+<h5>Input And Output</h5>
+<pre>
+Input:
+       graph[][] = { {0,   5,  INF, 10},
+                    {INF,  0,  3,  INF},
+                    {INF, INF, 0,   1},
+                    {INF, INF, INF, 0} }
+which represents the following graph
+             10
+       (0)------->(3)
+        |         /|\
+      5 |          |
+        |          | 1
+       \|/         |
+       (1)------->(2)
+            3       
+Note that the value of graph[i][j] is 0 if i is equal to j 
+And graph[i][j] is INF (infinite) if there is no edge from vertex i to j.
+
+Output:
+Shortest distance matrix
+      0      5      8      9
+    INF      0      3      4
+    INF    INF      0      1
+    INF    INF    INF      0 
+</pre><br><br>
+                <p>
+We initialize the solution matrix same as the input graph matrix as a first step. Then we update the solution matrix by considering all vertices as an intermediate vertex. <br><br>The idea is to one by one pick all vertices and updates all shortest paths which include the picked vertex as an intermediate vertex in the shortest path.<br><br><br><br>
+  <img src="../../image/dpFloyd-Warshall-.jpg"><br><br><br><br>                  
+When we pick vertex number k as an intermediate vertex, we already have considered vertices {0, 1, 2, .. k-1} as intermediate vertices. For every pair (i, j) of the source and destination vertices respectively, there are two possible cases.<br><br>
+                    
+1) k is not an intermediate vertex in shortest path from i to j. We keep the value of dist[i][j] as it is.<br>
+2) k is an intermediate vertex in shortest path from i to j. We update the value of dist[i][j] as dist[i][k] + dist[k][j] if dist[i][j] > dist[i][k] + dist[k][j]<br><br>
+
+The following figure shows the above optimal substructure property in the all-pairs shortest path problem</p><br>
+<pre style="border: 1px soild gray; background-color: lightgray; font-size: 15px ;">
+Algorithm
+for(int k = 1; k <= n; k++){
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            dist[i][j] = min( dist[i][j], dist[i][k] + dist[k][j] );
+        }
+    }
+}
+</>
+</pre><br>
+<p>Time Complexity of Floyd–Warshall's Algorithm is ,0(V<sup>3</sup>) where  is the number of vertices in a graph</p>
+
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Classes And Objects </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+			<a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon" style="width:auto;">
+      	<strong class="ribbon-content">Classes And Objects | Array of Objects</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Demonstrate Classes and objects using arrays
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+            <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+                    <h4><b>Classes And Objects</b></h4>
+<p>
+Classes and Objects are basic concepts of Object Oriented Programming which revolve around the real life entities. A class is a user defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type.</p>
+<br>
+<p>
+	Java is an object-oriented programming language.
+
+Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
+
+
+</p><br><br><br>
+<p>
+	<h4><b>Classes</b></h4>
+	A Class is like an object constructor, or a "blueprint" for creating objects.
+	To create a class, use the keyword <span style="color: crimson; background-color: #f1f1f1">class :</span>
+</p>
+<p>
+	For Example:
+	<pre>
+public class MyClass {
+	int x = 5;
+}
+	</pre>
+	The above Syntax creates a class named MyClass with variable x
+</p><br><br>
+
+<h4><b>Objects</b></h4>                  
+<p>
+	<p>In Java, an object is created from a class. We have already created the class named MyClass, so now we can use this to create objects.</p>
+
+<p>To create an object of <span style="color: crimson; background-color: #f1f1f1">MyClass</span>, specify the class name, followed by the object name, and use the keyword <span style="color: crimson; background-color: #f1f1f1">new : </span> </p>
+</p>
+
+<p>
+	<p>Example</p>
+Create an object called <span style="color: crimson;">"myObj"</span> and print the value of x:
+<pre>
+public class MyClass {
+	int x = 5;
+
+	public static void main(String[] args) {
+		MyClass myObj = new MyClass();
+		System.out.println(myObj.x);
+	}
+}
+</pre>
+</p>
+<p>
+	The above code prints the value of x as 5 <br><br><br><br>
+</p>
+<h4><b>Array of Objects</b></h4>
+<p>
+	As we have already know, arrays are capable of storing objects also. For explaining array of objects we will use a class Student containing a single instance variable marks. Following is the definition of this class
+	<pre>
+class Student {
+	int marks;
+}
+	</pre>
+</p>
+<p>
+	<p>
+	An array of objects is created just like an array of primitive type data items in the following way.
+</p>
+<pre>
+Student[] studentArray = new Student[7];
+</pre>
+</p>
+<br>
+<p>
+	The above statement creates the array which can hold references to seven Student objects. It doesn't create the Student objects themselves. They have to be created separately using the constructor of the Student class. The studentArray contains seven memory spaces in which the address of seven Student objects may be stored. If we try to access the Student objects even before creating them, run time errors would occur. For instance, the following statement throws a NullPointerException during runtime which indicates that studentArray[0] isn't yet pointing to a Student object.
+	<pre>
+studentArray[0].marks = 100;
+	</pre>
+	<p>
+		The Student objects have to be instantiated using the constructor of the Student class and their references should be assigned to the array elements in the following way.
+	</p>
+	<pre>
+studentArray[0] = new Student();
+	</pre>
+	<p>
+		In this way, we create the other Student objects also. If each of the Student objects have to be created using a different constructor, we use a statement similar to the above several times. However, in this particular case, we may use a for loop since all Student objects are created with the same default constructor.
+	</p>
+	<pre>
+for ( int i=0; i< studentArray.length; i++) {
+	studentArray[i]=new Student();
+}
+	</pre>
+	<p>
+		The above for loop creates seven Student objects and assigns their reference to the array elements. Now, a statement like the following would be valid.
+	</p>
+	<pre>
+studentArray[0].marks=100;
+	</pre>
+	<p>
+		Using the obove concepts we can create array of objects for any number of students having different methods and class variables.
+		Consider the below class havinf method showMarks
+	</p>
+	<pre>
+class Student{
+	int marks;
+
+	void showMarks(){
+		System.out.println("The marks is: " this.marks);
+	}
+}
+	</pre>
+	<p>
+		By creating an array of object as mentioned aobe we can access the method with following synatx: 
+	</p>
+	<pre>
+studentArray[0].showMarks();
+	</pre>
+	<p>
+		The obove code will print the marks allotted to student at index 0
+	</p>
+</p>
+
+
+                
+              
+            </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Exception Handling </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+    <a id="sideNav" href="../Code/">Code</a>
+    <a id="sideNav" href="../Explanation/">Program Description</a>
+    <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+      	<strong class="ribbon-content">Exception Handling</strong>
+	    </h1>
+	    <br>
+	    <br>
+	    <div class="probState">
+	    	<p>
+	    		<strong>Problem Statement :
+	    		</strong>
+	     		Demonstrate Divide by zero error using Exception Handling
+	     	</p>
+	    </div>
+	    <br>
+	    <br>
+			
+      <div class="probState" style="background-color:white;color:black;border: none;padding: 50px ;">
+      	<h4><b>Exception Handling | Divide by zero</b></h4>
+       	<p>
+       		The <b>Exception Handling in Java</b> is one of the powerful mechanism to handle the runtime errors so that normal flow of the application can be maintained.
+       	</p>
+       	<p>
+       		In Java, an exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime
+       	</p>
+       	<p>
+       		Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc
+       	</p>
+       	<p><b>Advantages of exception handling</b></p>
+       	<p>The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the application that is why we use exception handling. Let's take a scenario:</p>
+       	<pre>
+statement <span style="color: crimson">1</span>;  
+statement <span style="color: crimson">2</span>;  
+statement <span style="color: crimson">3</span>;  
+statement <span style="color: crimson">4</span>;  
+statement <span style="color: crimson">5</span>; <span style="color:green">//exception occurs </span>  
+statement <span style="color: crimson">6</span>;  
+statement <span style="color: crimson">7</span>;  
+statement <span style="color: crimson">8</span>;  
+statement <span style="color: crimson">9</span>;  
+statement <span style="color: crimson">10</span>;
+       	</pre>
+       	<p>
+       		Suppose there are 10 statements in your program and there occurs an exception at statement 5, the rest of the code will not be executed i.e. statement 6 to 10 will not be executed. If we perform exception handling, the rest of the statement will be executed. That is why we use exception handling in Java.
+       	</p><br><br><br>
+
+       	<h4><b>Java Exception Key words</b></h4>
+       	<table class="table table-striped">
+					<tr><th>Keyword</th><th>Description</th></tr>
+					<tr><td>try</td><td>The "try" keyword is used to specify a block where we should place exception code. The try block must be followed by either catch or finally. It means, we can't use try block alone.</td></tr>
+					<tr><td>catch</td><td>The "catch" block is used to handle the exception. It must be preceded by try block which means we can't use catch block alone. It can be followed by finally block later.</td></tr>
+					<tr><td>finally</td><td>The "finally" block is used to execute the important code of the program. It is executed whether an exception is handled or not.</td></tr>
+					<tr><td>throw</td><td>The "throw" keyword is used to throw an exception.</td></tr>
+					<tr><td>throws</td><td>The "throws" keyword is used to declare exceptions. It doesn't throw an exception. It specifies that there may occur an exception in the method. It is always used with method signature.</td></tr>
+				</table>
+				<br><br>
+
+				<h4><b>Example</b></h4>
+				<pre>
+public class JavaExceptionExample{  
+	public static void main(String args[]){  
+		try{  
+		//code that may raise exception  
+		int data=100/0;  
+		}catch(ArithmeticException e){
+			System.out.println(e);
+		}  
+		//rest code of the program   
+		System.out.println("rest of the code...");  
+	}  
+} 
+				</pre>
+				<p>
+					Output:
+				</p>
+				<pre>
+Exception in thread main java.lang.ArithmeticException:/ by zero
+rest of the code...
+				</pre>
+
+
+
+
+          
+        
+      </div>
+			<br><br>
+			
+		</div>
+	
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Lab | Dijkstra Algorithm  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/dracula.dev.js"></script>
+	<script type="text/javascript" src="../../DraculaDev/Graphscript.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js">
+    </script>
+
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+      <a id="sideNav" href="../Code/">Code</a>
+      <a id="sideNav" href="../Explanation/">Program Description</a>
+      <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+
+		<div id="main" style="margin-left: 70px ;">
+			<h1 class="ribbon">
+          	<strong class="ribbon-content">Dijkstra Algorithm </strong>
+    	    </h1>
+    	    <br>
+    	    <br>
+    	    <div class="probState">
+    	    	<p>
+    	    		<strong>Problem Statement :
+    	    		</strong>
+    	     		From a given vertex in a weighted connected graph, find shortest paths to other vertices using Dijkstra's algorithm. Write the program in Java.
+    	     	</p>
+    	    </div>
+    	    <br>
+    	    <br>
+    		<div class="probState" style="background-color:white;border: none;">
+                <pre style="color:black;font-size: 15px ;">
+
+
+    import java.util.Scanner;
+    public class Lab7 
+    {
+        public static void main(String[] args)
+        {
+            int i, j;
+            int dist[]=new int[10], visited[]=new int[10];
+            int cost[][]=new int[10][10], path[]=new int[10];
+            Scanner in = new Scanner(System.in);
+            System.out.println("**** DIJKSTRA'S ALGORITHM ******");
+            System.out.println("Enter the number of nodes: ");
+            int n = in.nextInt();
+            System.out.println("Enter the cost matrix");
+                for(i=1;i<=n;i++)
+                    for(j=1;j<=n;j++)
+                        cost[i][j] = in.nextInt();
+            System.out.println("The entered cost matrix is");
+            for(i=1;i<=n;i++)
+                {
+                    for(j=1;j<=n;j++)
+                    {
+                    System.out.print(cost[i][j]+"\t");
+                    }
+                System.out.println();
+            }
+                System.out.println("Enter the source vertex: ");
+                int sv = in.nextInt();
+                dij(cost,dist,sv,n,path,visited);
+                printpath(sv,n,dist,path,visited );
+                System.out.println("\n********* *************** *********");
+            }
+            static void dij(int cost[][],int dist[],int sv,int n,int path[],int visited[])
+            {
+                int count = 2,min,v=0;
+                for(int i=1; i<=n; i++)
+                {
+                    visited[i]=0;
+                    dist[i] = cost[sv][i];
+                    if(cost[sv][i] == 999)
+                    path[i] = 0;
+                    else
+                    path[i] = sv;
+                }
+                visited[sv]=1;
+                while(count<=n)
+                {
+                    min = 999;
+                    for(int w=1; w<=n; w++)
+                    if((dist[w]< min) && (visited[w]==0))
+
+                    {
+                        min = dist[w];
+                        v = w;
+                        }
+                visited[v] = 1;
+                count++;
+                
+                for(int w=1; w<=n; w++)
+                {
+                if((dist[w]) >(dist[v] + cost[v][w]))
+                    {
+                    dist[w] = dist[v] + cost[v][w];
+                    path[w] = v;
+                    }
+                }
+              }
+            }
+            
+            static void printpath(int sv,int n,int dist[],int path[],int visited[])
+            {
+                for(int w=1; w<=n; w++)
+                {
+                    if(visited[w] == 1 && w != sv)
+                    {
+                        System.out.println("The shortest distance between ");
+                        System.out.println(sv+"-> ="+w+" is :"+ dist[w]); int
+                        t=path[w];
+                        System.out.println("The path is:");
+                        System.out.print(" "+w);
+                        while(t != sv){
+                            System.out.print("<-->"+t);
+                            t=path[t];
+                        }
+                    System.out.print("<-->"+sv);
+                    }
+                  }
+                }
+            }
+
+
+                </pre>
+			</div>
+			<br>
+            <br>
+		</div>
+</body>
+
+</html>

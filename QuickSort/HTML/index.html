@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>QuickSort</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../Template/Template.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		td{
+			background-color: white;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="mySidenav" class="sidenav">
+	    <center>
+	        <img style="border:2px solid white ;margin-top:30px ;margin-bottom:30px ;" src="../../image/logo2.jpg" width="90%" height="120px" alt="IMG">
+	    </center>
+	  
+	  <a id="sideNav" href="../../Home/">Home</a>
+	  <a id="sideNav" href="../Code/">Code</a>
+	  <a id="sideNav" href="../Explanation/">Program Description</a>
+	  <a id="sideNav" href="../HTML/">Virtual Lab</a>
+	</div>
+    
+	<nav  style="background-color:#2D3E52;border-bottom:none ;" class="navbar navbar-default navbar-fixed-top">
+	  <div  class="container-fluid">
+	  	<ul class="nav navbar-nav"> 
+	      <li>
+	      	<a style="font-size:20px;cursor:pointer;color:white;;padding-left:0px ;" href="#" onclick="openNav()">&#9776;
+	      	</a>
+	      </li>
+    	</ul>
+	    <div class="navbar-header">
+	      <a class="navbar-brand" style="font-size:20px;cursor:pointer;color:white ;" href="#">CMR Institute of Technology</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+					</a>
+				</li>
+				<li>
+					<a style="color:white ;" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				</li>
+			</ul>
+	  </div>
+	</nav>
+	<center>
+	<div id="main">
+		<h1 class="ribbon">
+      <strong class="ribbon-content">Quick Sort</strong>
+    </h1>
+    <br>
+    <br>
+    <div class="probState">
+     <p><strong>Problem Statement :</strong>
+     QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways</p>
+    </div>
+    <br>
+    <br>
+    <div class="probState">
+			<form>
+				<div class="form-group text-center">
+					<label for="itemInput">Size Of Array</label>
+					<center>
+						<input type="text" autofocus class="form-control" style="width:25%" id="size">
+					</center>
+				</div>
+				<div class="text-center">
+					<button type="button" class="btn btn-primary " onclick="handleClick()">Submit</button>
+				</div>
+
+			</form>
+		</div>
+		<div  id="ArraySize">
+
+		</div><br><br>
+
+		<div class="probState">
+			<form id="form" class="">
+					<div class="form-group text-center">
+						<label for="itemInput">Enter Elements One by One</label>
+							<center>
+								<input type="text" class="form-control" style="width:25%" id="ele">
+							</center>
+					</div>
+					<div class="text-center">
+						<button type="button" class="btn btn-primary" id="adder" onclick="add()">ADD</button>
+					</div>
+				</form>
+		</div>
+		<div>
+			<h3 style="color:grey" id="confirmation"></h3>
+		</div>
+		<br><br>
+		<div id="arr">
+		</div>
+		<br><br>
+		<div class="conatiner text-center hide" id="sort">
+			<button type='button' class='btn btn-primary mt-2' onclick='quicksort()' id="quick">
+				QuickSort
+			</button>
+		</div>
+		<br>
+
+		<div class="probState hide" id="recursion">
+		</div>	
+		<br><br>	
+		<div class="probState hide" id="final">
+		</div>
+		</div>
+	</div>
+</center>
+	
+	<script type="text/javascript" src="./QuickSort.js"></script>
+	<script type="text/javascript" src="../../Template/Template.js"></script>
+
+</body>
+
+</html>
